@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Visual DITA
+    url: https://visualdita.com
+    about: What the product is, and how to get in touch about it.
+  - name: Marketplace
+    url: https://marketplace.visualstudio.com/items?itemName=pleosoft.visualdita
+    about: Install the extension, or read the release notes.

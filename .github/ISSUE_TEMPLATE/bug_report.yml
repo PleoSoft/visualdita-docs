@@ -1,0 +1,46 @@
+name: Bug report
+description: Something in Visual DITA does not work, or damages a document
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. If the editor wrote something wrong into a file, the XML before and after
+        is the most useful thing you can give us.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you got.
+      placeholder: |
+        1. Opened a topic with a two-column table
+        2. Pressed Enter in the last cell
+        3. Expected a new row; the table lost a column instead
+    validations:
+      required: true
+  - type: textarea
+    id: xml
+    attributes:
+      label: The XML
+      description: The smallest document that shows it — before your edit, and after, if it was written wrong.
+      render: xml
+  - type: input
+    id: version
+    attributes:
+      label: Visual DITA version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: vscode
+    attributes:
+      label: VS Code version and operating system
+      placeholder: "1.106.0, Windows 11"
+    validations:
+      required: true
+  - type: input
+    id: doctype
+    attributes:
+      label: Document type
+      description: The DOCTYPE of the file, and whether it is a specialization of your own.
+      placeholder: '-//OASIS//DTD DITA Task//EN'
