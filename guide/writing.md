@@ -59,6 +59,17 @@ topic is used, makes the element reusable (gives it an id to conref), and opens 
   shows on the page as it will be published, read-only; one click opens its source.
 - **Keys**: text defined by a key (`<keyword keyref="product"/>`) shows its value, resolved through the map and its
   key scopes.
+- **Renaming and moving files**: rename or move a topic, map, image or folder in the Explorer, and Visual DITA offers
+  to update what points at it — the maps' entries and key definitions, links, reused content, images — and, for a
+  file that changes folder, its own references. **Show Changes First** shows every file as it is and as it would be,
+  before anything changes; **Always** and **Never** stop the question (the `visualDita.updateReferences` setting).
+  References through keys need nothing: only the key's definition in the map changes. Only the references change:
+  every other byte of each file stays as it was. A file open with unsaved changes gets the update in its editor, to
+  save with the rest of your changes.
+
+![maintenance.dita renamed in the Explorer to maintaining-the-pump.dita: Visual DITA asks to update 3 references in 3 files, with Update, Show Changes First, Always and Never](images/rename-references.png)
+
+![Show Changes First: the map and the two topics that link to the renamed topic, each as it is and as it would be, only the file name changed in each reference](images/rename-changes.png)
 
 ## Equations and drawings
 

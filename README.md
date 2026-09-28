@@ -79,7 +79,12 @@ refactoring, topic and map templates (including Oxygen framework templates), con
 files — a topic under a `ditavalref` branch previews through that filter by itself — and subject schemes.
 Glossary entries render as entries; a `term` or `abbreviated-form` by key reads as the glossary says. Footnotes
 are numbered where they are written, index terms are small markers you can see and edit. The **DITA References**
-view lists what a topic uses — keys, conrefs, links, images — and what uses it.
+view lists what a topic uses — keys, conrefs, links, images — and what uses it. Rename or move a topic, map, image or
+folder in the Explorer and the references follow: the maps' entries and key definitions, links, reuse and images
+pointing at it, and a moved file's own — shown first if you want, every file as it is and as it would be.
+**Check References** lists what does not resolve in a topic or map, or in the whole project: a file or image not
+there, an id a link or conref names that is not in its file, a key no map defines, a link to a topic no map
+publishes — each a click from its line, and up to date when files are renamed or deleted outside VS Code.
 
 **Equations and drawings.** MathML and SVG render as themselves — inline formulas, numbered equation figures,
 `mathmlref`/`svgref` files. **Equation** inserts one; right-click a formula to write it in **LaTeX** with a live
@@ -205,6 +210,7 @@ version, or making one the project's version (for the project, in its settings).
 | `visualDita.standardDita` | The built-in DITA versions your project uses: 1.0 to 1.3 unless you unload one, and the DITA 2.0 draft (`2.0-draft`) only when you load it. Set by **Load** and **Unload** in the DITA Document Types view. |
 | `visualDita.packages` | Where your Visual DITA packages (signed `.vdpkg` files) are: files, or folders directly holding them. Default: `.dita` and the project folder. |
 | `visualDita.rootMap` | Root map used to resolve keys. Empty: the map that reaches the document. |
+| `visualDita.updateReferences` | When you rename or move a topic, map, image or folder in the Explorer, update the references to it and a moved file's own: `prompt` (ask, with **Show Changes First**), `always` or `never`. Keys and fragments stay as they are. |
 | `visualDita.templates` | Folders with topic and map templates for **New Topic from Template…** and **New Map from Template…**. The standard DITA types and your personal templates (`~/.visual-dita/templates`, filled by **Save as Template…**) are always offered too. |
 | `visualDita.css` | Oxygen Author CSS files or folders applied to the page. |
 | `visualDita.panes` | Where the Properties, Review and Topic panes live: `vscode` (the Visual DITA container of the secondary side bar) or `page`. |
@@ -306,7 +312,7 @@ More about the product: [visualdita.com](https://visualdita.com).
 
 ## Licence
 
-Copyright © 2026 [Pleo Soft d.o.o.](https://visualdita.com) All rights reserved.
+Copyright © 2026 [Pleo Soft d.o.o.](https://pleosoft.com) All rights reserved.
 Installing or using Visual DITA means accepting its licence agreement, [LICENSE.md](LICENSE.md); third-party
 components are listed in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 

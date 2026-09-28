@@ -26,7 +26,8 @@ the other.
 
 1. **DITA Map view** — the map that publishes the topic you are on, as a tree of titles. Click a title to open the
    topic. Keys defined in the map are listed at the top.
-2. **DITA References** — what this topic uses (images, links, reused content) and what uses it.
+2. **DITA References** — what this topic uses (images, links, reused content) and what uses it; **Check References**
+   lists what does not resolve.
 3. **The ribbon** — as in Word: History, Styles, Font, Paragraph, Insert, Review, View and, where the file is in
    Git, Compare. Buttons that do not apply where the caret is are greyed out.
 4. **The page** — your topic as it reads: titles, paragraphs, lists, notes, tables, figures and images. Type on it.

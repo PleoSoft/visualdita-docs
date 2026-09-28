@@ -52,6 +52,17 @@ publishes, and images nobody uses. Every file is a link that opens it.
 
 ![The Project Health Report: 7 topics in one map, one broken link and one topic in no map](images/project-health.png)
 
+**Check References**, the checklist button of the **DITA References** view, lists at the top of the view what does
+not resolve in the topic or map you are on: a file or image that is not there, an id a link or conref names that is
+not in its file, a key no map defines, a conref that names no element, and a link to a topic no map publishes (it
+goes nowhere once published). Each opens the source at its line; the count shows on the view. **Check References in
+the Whole Project**, in the view's menu, does the same for every topic and map. Links to web addresses, and those
+marked `scope="peer"` (another doc set), are left alone. A file renamed, moved or deleted outside VS Code (by Git, or
+another program) shows at once: the DITA Map view marks its entry as not there, the topics linking to it show the
+problem, and a check listed in the view runs again.
+
+![Check References in the Whole Project: 2 problems at the top of the DITA References view, a link to a file that is not there and a link to an id that is not in its file, each with its file and line, and the count on the Visual DITA icon](images/check-references.png)
+
 **Visual DITA: Check Grammars in Workspace** asks one more question of the whole doc set: which document types its
 files declare, and whether each one resolves to standard DITA or to a licensed package. Run it when a doc set arrives,
 before anyone concludes their own elements are not supported.

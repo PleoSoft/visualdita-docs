@@ -16,13 +16,13 @@ stay DITA: valid, lossless, yours.
 
 1. [Getting started](getting-started.md) — install, open a folder, find your way around the window, create a topic.
 2. [Writing on the page](writing.md) — typing, Enter, the mini toolbar, inserting elements, links, images, reuse,
-   conditions, the topic's metadata, keyboard shortcuts.
+   renaming and moving files, conditions, the topic's metadata, keyboard shortcuts.
 3. [Tables](tables.md) — CALS and simple tables, the table bar, cells, rows, columns, widths.
 4. [Maps](maps.md) — the map as an outline, keys, relationship tables, the DITA Map view.
 5. [Review and compare](review-and-compare.md) — comments and tracked changes in the file, and comparing versions
    with Git on one page or side by side.
 6. [Checking your content](checking.md) — validation as you type, authoring rules, the Problems panel, the Project
-   Health Report.
+   Health Report, Check References.
 7. [Your document types](document-types.md) — standard DITA and its yearly renewal, licensed specializations, what
    "not licensed" means, your framework's templates and styling.
 
