@@ -3,7 +3,7 @@
 [User guide](README.md) › Your document types
 
 Every DITA file names its document type in its DOCTYPE (`<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" …>`),
-and Visual DITA works from that document type: it decides what the page offers, what the menus contain and what the
+or, written for RELAX NG, in an `<?xml-model?>` at its top, and Visual DITA works from that document type: it decides what the page offers, what the menus contain and what the
 check reports.
 
 ## Standard DITA: built in, and free
@@ -69,10 +69,16 @@ product-specific block), and constraints, which leave some out. Visual DITA supp
 elements, the insert menus and the styles list offer them where your grammar allows, and the check follows your
 grammar — through a **Visual DITA package**.
 
-A package is one file (`.vdpkg`) that Pleosoft prepares from your document types: their grammars, compiled, with a
-licence in your name, signed. Add it with **Import Visual DITA Package…** in the **DITA Document Types** view: it is
+A package is one file (`.vdpkg`) that Pleosoft prepares from your document types, written as DTDs or as RELAX NG:
+their grammars, compiled, with a licence in your name, signed. Add it with **Import Visual DITA Package…** in the **DITA Document Types** view: it is
 checked and copied into the `.dita` folder of your project, so it travels with the project for everyone who works
-on it. Visual DITA never reads your DTDs or catalogs themselves.
+on it. Visual DITA never reads your DTDs, RELAX NG or catalogs themselves.
+
+A topic finds its document type in your packages by what it names: its DOCTYPE's public id (or, with none, the DTD's
+file name), or its `<?xml-model?>`: the URN your catalog gives the shell, or a path, which goes to the package whose
+shell sits at the end of that path. An OASIS identifier (`urn:oasis:names:tc:dita:rng:concept.rng`) opens on
+standard DITA, unless your catalog maps that very identifier to a shell of yours. When two packages have the same
+public id or URN, the first is used, and the DITA Document Types view says which.
 
 This is the paid part of Visual DITA. To license your document types, contact Pleosoft at
 [visualdita.com](https://visualdita.com).
@@ -104,11 +110,28 @@ A file whose document type is neither standard DITA nor in a licensed package st
 - the grammar check is off for that file, since it would report every element of your own.
 
 Editing the file as XML, and using it with any other tool, is never restricted. **FALLBACK GRAMMAR** is the other
-readout you may see: the file names no document type Visual DITA knows (no DOCTYPE, or a standard one it does not
-have), so it opens on the standard type matching its root element.
+readout you may see: the file names no document type Visual DITA knows (no DOCTYPE or `<?xml-model?>`, or a standard
+one it does not have), so it opens on the standard type matching its root element, or read-only as below when its
+root element is not a standard one.
 
 **Visual DITA: Check Grammars in Workspace** lists, for the whole doc set, which document types resolve and which do
 not, with the files they concern.
+
+### A topic of a type of your own
+
+A topic whose root element is yours — a `<warranty>` rather than a `<concept>` — has no standard type to open on. It
+is shown read-only instead, so the whole topic can still be read:
+
+![A warranty topic not licensed, read-only: the banner explains, the warranty's own elements are labelled boxes around their content, the title, paragraphs, list and section inside them as usual, and the status line names the boxes the cursor is in](images/not-licensed-type.png)
+
+- your elements are labelled boxes around their content, and your inline elements are labelled where they are in the
+  line;
+- the DITA inside them — titles, paragraphs, lists, sections — is on the page as usual;
+- the status line names each element the cursor is in, yours included;
+- nothing can be changed on the page, and the ribbon is hidden; the banner says so, and **Open Source** opens the XML,
+  which stays yours to edit.
+
+Once the package that has your document type is licensed, the topic opens on its own grammar and can be edited.
 
 ## Your framework's templates and styling
 

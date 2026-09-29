@@ -85,6 +85,9 @@ pointing at it, and a moved file's own — shown first if you want, every file a
 **Check References** lists what does not resolve in a topic or map, or in the whole project: a file or image not
 there, an id a link or conref names that is not in its file, a key no map defines, a link to a topic no map
 publishes — each a click from its line, and up to date when files are renamed or deleted outside VS Code.
+Rename an id or a key (right-click, or **F2** in the XML) and every link, reuse and `keyref` in the project follows,
+key scopes respected; **Shift+F12** lists where one is used. The Explorer marks topics and maps with references that
+do not resolve, a document type not licensed, or no map using them; **Ctrl+T** goes to any topic, key or id.
 
 **Equations and drawings.** MathML and SVG render as themselves — inline formulas, numbered equation figures,
 `mathmlref`/`svgref` files. **Equation** inserts one; right-click a formula to write it in **LaTeX** with a live
@@ -111,8 +114,9 @@ its rights owner, copyright years, ISBN and publisher. It is off the map page th
 switch.
 
 **Authoring rules.** Beyond the grammar: a topic without a short description (or with one over 50 words), an empty
-paragraph, a key no map defines, a reference to a file that is not there, a profiling value outside the subject
-scheme, an image without alt text, a duplicate id, a URL link without `scope="external"`, leftover draft content,
+paragraph, a key no map defines, a reference to a file that is not there, reuse of an element of another type (or of
+content your document type does not have), a profiling value outside the subject scheme (your own conditions, like
+a `@jobrole`, included), an image without alt text, a duplicate id, a URL link without `scope="external"`, leftover draft content,
 a table row with the wrong number of cells. Shown on the page and in the Problems panel, for a topic open as a
 page or as XML; switch any off with `visualDita.rulesOff`. A topic without a short description shows a faint
 **Short description** line under its title: click it, or press Tab in the title, and type. In the XML, the quick fix
@@ -164,10 +168,10 @@ The [user guide](guide/getting-started.md) walks through it with screenshots; in
 3. To open a file as XML instead: right-click → **Open With…** → *Text Editor*, or the **Open Source** command.
 4. Set `visualDita.author` to the name you want on your comments and tracked changes.
 
-**Your own document types** come from Pleosoft as a Visual DITA package: one `.vdpkg` file, signed, holding
-your specialization's grammars and its licence. Add it with **Import Visual DITA Package…** in the **DITA
-Document Types** view: it is checked and copied into `.dita/` of your project. Visual DITA never reads your DTDs
-or catalogs.
+**Your own document types**, written as DTDs or as RELAX NG, come from Pleosoft as a Visual DITA package: one
+`.vdpkg` file, signed, holding your specialization's grammars and its licence. Add it with **Import Visual DITA
+Package…** in the **DITA Document Types** view: it is checked and copied into `.dita/` of your project. Visual DITA
+never reads your DTDs, RELAX NG or catalogs.
 
 **Your framework's templates and styling.** Run **Visual DITA: Use Framework Templates and CSS…** and pick the
 folder your templates and Oxygen Author CSS live in (an Oxygen framework or a DITA-OT plugin folder, typically) —
@@ -205,11 +209,12 @@ version, or making one the project's version (for the project, in its settings).
 | `visualDita.author` | Name written into comments and tracked changes. Empty: your OS user name. |
 | `visualDita.trackChanges` | Offer Track changes. A team reviewing through Git turns it off in the project's settings; tracked changes already in a file still show, to accept or reject. |
 | `visualDita.validation` | Check documents against their document type, and complete elements, attributes and values in the XML. The authoring rules are switched off separately. |
-| `visualDita.rulesOff` | Authoring rules to switch off: `shortdesc`, `empty`, `subject-scheme`, `keys`, `files`, `alt`, `ids`, `external-scope`, `draft`, `table`, `tracked` (tracked changes left in a file when `visualDita.trackChanges` is off). |
+| `visualDita.rulesOff` | Authoring rules to switch off: `shortdesc`, `empty`, `subject-scheme`, `keys`, `files`, `reuse`, `alt`, `ids`, `external-scope`, `draft`, `table`, `tracked` (tracked changes left in a file when `visualDita.trackChanges` is off). |
 | `visualDita.ditaVersion` | The DITA version, 1.0 to 1.3, of documents whose DOCTYPE names none (`-//OASIS//DTD DITA Task//EN`, as most do). A DOCTYPE naming a version always gets that version; a document type your version lacks opens on the next version up that has it. Default: 1.3. |
 | `visualDita.standardDita` | The built-in DITA versions your project uses: 1.0 to 1.3 unless you unload one, and the DITA 2.0 draft (`2.0-draft`) only when you load it. Set by **Load** and **Unload** in the DITA Document Types view. |
 | `visualDita.packages` | Where your Visual DITA packages (signed `.vdpkg` files) are: files, or folders directly holding them. Default: `.dita` and the project folder. |
 | `visualDita.rootMap` | Root map used to resolve keys. Empty: the map that reaches the document. |
+| `visualDita.explorerBadges` | Mark topics and maps in the Explorer: references that do not resolve (their count), `!` for a document type not licensed, a topic no map uses greyed. |
 | `visualDita.updateReferences` | When you rename or move a topic, map, image or folder in the Explorer, update the references to it and a moved file's own: `prompt` (ask, with **Show Changes First**), `always` or `never`. Keys and fragments stay as they are. |
 | `visualDita.templates` | Folders with topic and map templates for **New Topic from Template…** and **New Map from Template…**. The standard DITA types and your personal templates (`~/.visual-dita/templates`, filled by **Save as Template…**) are always offered too. |
 | `visualDita.css` | Oxygen Author CSS files or folders applied to the page. |
@@ -219,15 +224,17 @@ version, or making one the project's version (for the project, in its settings).
 
 ## When your own elements are not offered
 
-The page's status line reads `NOT LICENSED` when the document's DOCTYPE is not standard DITA and no package in use
-licenses it: the page opens it as base DITA, so your specialized elements are not in the menus. The **DITA
-Document Types** view says why for each (no package has it, its licence ended, the package was unloaded…); contact
-Pleosoft for a package, and add it with **Import Visual DITA Package…**. `FALLBACK GRAMMAR` means the document
-names no grammar Visual DITA has — no DOCTYPE, a DOCTYPE with only a system id, or a standard one it does not know:
-it opens on the built-in shell matching its root element, and is not validated.
+The page's status line reads `NOT LICENSED` when the document type a document names (its DOCTYPE, or its
+`<?xml-model?>`) is not standard DITA and no package in use licenses it: the page opens it as base DITA, so your
+specialized elements are not in the menus. The **DITA Document Types** view says why for each (no package has it, its
+licence ended, the package was unloaded…); contact Pleosoft for a package, and add it with **Import Visual DITA
+Package…**. A topic of a type of your own (its root element is yours) is shown read-only instead, your elements as
+labelled boxes around their DITA. `FALLBACK GRAMMAR` means the document names no grammar Visual DITA has — no DOCTYPE
+or `<?xml-model?>`, a DOCTYPE with only a system id, or a standard one it does not know: it opens on the built-in shell
+matching its root element, and is not validated.
 
-**Visual DITA: Check Grammars in Workspace** asks the same question of the whole doc set at once: every DOCTYPE it
-declares, which of them resolved and to which package or standard DITA shell, and — first in the report — the
+**Visual DITA: Check Grammars in Workspace** asks the same question of the whole doc set at once: every document type
+it names, which of them resolved and to which package or standard DITA shell, and — first in the report — the
 ones that did not, with the documents they cost. Worth running when a doc set arrives, before anyone concludes
 their elements are unsupported.
 
@@ -243,7 +250,7 @@ grammars your project actually resolves to:
 | `dita_describe_element` | one element: content model, attributes and their allowed values, what accepts it |
 | `dita_search_vocabulary` | find an element or attribute by part of its name |
 | `dita_check_topic` | the document checked against the grammar it resolves to, with the editor's own checker, then the authoring rules, each finding with its line |
-| `dita_grammar_health` | which DOCTYPEs resolve to a grammar, and which fall back to base DITA |
+| `dita_grammar_health` | which document types resolve to a grammar, and which fall back to base DITA |
 | `dita_resolve_key` | what a key means here, through DITA 1.3 key scopes; without a key, every key in scope with its text and target |
 | `dita_where_used` | everything referencing a file, an id or a key |
 | `dita_map_tree` | the map as a tree of resolved titles |

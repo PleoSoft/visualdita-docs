@@ -33,6 +33,7 @@ Beyond the grammar, the rules point out:
 | `empty` | an empty title, paragraph, list item, note or section |
 | `keys` | a key no map defines |
 | `files` | a link or reference to a file that is not there |
+| `reuse` | a conref or conkeyref that pulls an element of another type (a paragraph reusing a step: an element reuses its own type or a specialization of it), or content with elements your document type does not have |
 | `subject-scheme` | a profiling value your subject scheme does not allow |
 | `alt` | an image without alternative text |
 | `ids` | an id used twice in a topic |
@@ -72,5 +73,20 @@ before anyone concludes their own elements are not supported.
 With a topic open as XML (**Open Source**), the same checks run, and Visual DITA completes the elements allowed where
 you type, their attributes and their values. Ctrl+click on a `keyref`, `conref` or `href` goes to its target, and
 hovering one shows what it resolves to.
+
+- **F2** on an id, a key, or a reference to one renames it and every reference in the project; **Ctrl+Enter** in
+  the rename box shows every change first.
+- **Shift+F12** lists every place an id or a key is used, the key/element and `#./element` forms included.
+- The **Outline**, the breadcrumbs and sticky scroll follow the file's structure: topics, sections, figures and
+  tables by their titles; a map's entries, headings and key definitions.
+
+## In the Explorer, and anywhere
+
+The Explorer marks each topic and map: how many of its references do not resolve (what **Check References** lists),
+**!** for a document type no Visual DITA package licenses, and a topic no map uses greyed. Hover one to read why.
+The project is looked at again whenever you save or files come or go; `visualDita.explorerBadges` turns the marks off.
+
+**Go to Symbol in Workspace** (**Ctrl+T**) finds a topic, section, figure or table by its title, a map by its title,
+a key, or an id (type `#` and the id) anywhere in the project.
 
 Next: [Your document types](document-types.md).
