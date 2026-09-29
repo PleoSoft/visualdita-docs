@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.5.0
+
+### Writing a map as an outline
+
+- A map can be typed before its topics exist: **Enter** in the map's title starts it with a heading, **Enter** at
+  the end of a heading's title adds the next one, **Tab** and **Shift+Tab** nest it while you type, **Escape** leaves
+  the title.
+- **Create topic…** (the Entry group, or right-click) makes the topic of an entry that has none, from a template,
+  titled as the entry; right-click › **Create topics for the … entries without a file…** makes them all from one
+  template. The entry becomes the reference to its topic.
+- New topics, from **New topic…** too, go into the folder of the topics around them in the map, not beside the map.
+- **Topic…** and **Map…** take several files at once: they are added one after the other, in name order.
+
+### Maps of your own document type
+
+- **More ▾** in the map's Add group, and right-click › **Add**, offer the other entries your map's document type
+  allows where the entry goes: a group, and your own entry types, a term map's term groups for instance. An entry
+  that references a file asks for it; a group that must hold an entry asks for its first one.
+
 ## 0.3.0
 
 ### Rename ids and keys, and find where they are used

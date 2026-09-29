@@ -11,11 +11,29 @@ Titles come from the topics themselves and from keys, so the outline reads like 
 
 The ribbon's **Add** group adds, after the selected entry:
 
-- **Topic…** — a reference to a topic that exists, picked from the project;
-- **New topic…** — a new topic from a template, created and referenced in one go;
+- **Topic…** — a reference to a topic that exists, picked from the project; pick several and they are added in
+  name order;
+- **New topic…** — a new topic from a template, created and referenced in one go, in the folder of the topics around
+  it;
 - **Heading** — a heading that groups entries without a topic of its own (`topichead`);
 - **Key** — a key definition, for text or a target you reuse by key;
-- **Map…** — another map, referenced from this one.
+- **Map…** — another map, referenced from this one (or several);
+- **More ▾** — the other entries your map's document type allows there: a group, and your own entry types (a term
+  map's term groups, say). One that references a file asks for it; a group that must hold an entry asks for its first.
+
+Right-click › **Add** offers the same.
+
+## Writing it as an outline
+
+A map can be written before its topics exist, as a table of contents is typed:
+
+- **Enter** in the map's title starts it with a heading, its title ready to type;
+- **Enter** at the end of a heading's title adds the next heading, as the next line (under it, when its entries are
+  shown); **Tab** and **Shift+Tab** nest it or bring it out, while you keep typing; **Escape** leaves the title.
+
+Then give the headings their topics. **Create topic…**, on a heading or right-click, makes its topic from a template,
+titled as the heading, in the folder of the topics around it; the heading becomes the reference to it. Right-click ›
+**Create topics for the … entries without a file…** makes them all at once, from one template.
 
 ## Arranging it
 
@@ -25,7 +43,7 @@ indents it under the entry above or outdents it, and removes it. **Outline** fol
 ## An entry
 
 Select an entry to work on it. **Open** opens its topic beside the map; **Rename** changes its navigation title;
-**Change file…** points it at another file. The bar at the bottom of the page sets its keys and key scope, and the
+**Change file…** points it at another file; **Create topic…**, on an entry with no file yet, makes its topic. The bar at the bottom of the page sets its keys and key scope, and the
 Properties pane shows all its attributes.
 
 ## The map's metadata
