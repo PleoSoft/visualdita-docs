@@ -46,6 +46,18 @@ Select an entry to work on it. **Open** opens its topic beside the map; **Rename
 **Change file…** points it at another file; **Create topic…**, on an entry with no file yet, makes its topic. The bar at the bottom of the page sets its keys and key scope, and the
 Properties pane shows all its attributes.
 
+**Inline into parent topic…** (right-click an entry under another topic's entry) is Extract's reverse: the entry's
+topic moves into its parent's topic, and its file goes. It asks how when both can be:
+
+- **as a section**, when the topic is that simple: no sections or topics of its own, no prolog, and used nowhere but
+  under its parent. Its title becomes the section's, its short description a paragraph; a numbered entry makes a
+  numbered section, so its number stays;
+- **as a nested topic**, whole: its id, short description and prolog kept, at the end of the parent topic.
+
+Its entry leaves the map, its own entries taking its place; every link and reuse that pointed at it, in maps and
+topics, points where it went. What the parent's document type does not take (a task nested in a concept) is not
+offered.
+
 ## The map's metadata
 
 The map's own metadata — its `<topicmeta>`, a bookmap's `<bookmeta>` — is in the **Topic** pane, as **Map info**
@@ -69,9 +81,14 @@ set when you open it.
 ## The DITA Map view
 
 The **DITA Map** view in the Visual DITA side bar shows the map that publishes the topic you are working on, and
-follows you as you open other topics; click a title to open that topic. Right-click a map in the Explorer ›
-**Visual DITA** › **Show in Map Panel** to choose the map it shows. Its title bar also has the **Project Health
-Report** (see [Checking your content](checking.md)).
+follows you as you open other topics; click a title to open that topic. With several root maps it lists them all.
+Opening a map shows that map alone, and so does **Choose Map…** in its title bar, or right-clicking a map in the
+Explorer › **Visual DITA** › **Show in Map Panel**; **Show All Maps**, beside them in the title bar (or the first
+entry of **Choose Map…**), lists them all again. The map shown alone is also what **DITA Search** keeps to (see
+[Searching your content](search.md)). **Filter** (the funnel in its title bar) finds a map or a topic by its title as
+you type, the others hidden; **Ctrl+Alt+F** in the view opens VS Code's own find there (it marks the matches, unless
+VS Code is set to filter); everywhere else it opens DITA Search. Its **…** menu has **Edit Map**, the **Project Health Report** (see
+[Checking your content](checking.md)) and **Refresh**.
 
 Maps carry comments and tracked changes too: see [Review and compare](review-and-compare.md#maps).
 

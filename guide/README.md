@@ -23,8 +23,14 @@ stay DITA: valid, lossless, yours.
    with Git on one page or side by side.
 6. [Checking your content](checking.md) — validation as you type, authoring rules, the Problems panel, the Project
    Health Report, Check References.
-7. [Your document types](document-types.md) — standard DITA and its yearly renewal, licensed specializations, what
+7. [Searching your content](search.md) — DITA Search: the text of your topics and maps by its words, kept to a kind
+   of element or a map, each place a click from its paragraph.
+8. [Your glossary](glossary.md) — glossary terms on the page, inserting them by their words, adding new ones,
+   consistent terminology.
+9. [Your document types](document-types.md) — standard DITA and its yearly renewal, licensed specializations, what
    "not licensed" means, your framework's templates and styling.
+10. [Publishing](publishing.md) — a map published as HTML5 with the page's look, or as PDF, by the DITA-OT on your
+   machine; the same look for DITA-OT run another way.
 
 The [README](../README.md) has the settings, the agent tools for AI assistants, and the requirements.
 

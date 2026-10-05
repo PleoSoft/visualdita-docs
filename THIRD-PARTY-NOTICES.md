@@ -43,6 +43,18 @@ XML parsing and serialisation outside the browser (`@xmldom/xmldom`).
 >
 > MIT licence — see <https://github.com/xmldom/xmldom/blob/master/LICENSE>.
 
+## node-sqlite3-wasm and SQLite
+
+The project's index, behind DITA Search, where a file is used and Go to Symbol in Workspace: SQLite with its
+full-text search, compiled to WebAssembly by `node-sqlite3-wasm`, shipped in `out/node_modules/node-sqlite3-wasm`
+with its licence.
+
+> node-sqlite3-wasm: Copyright (c) 2022-2024 Tobias Enderle.
+>
+> MIT licence — see <https://github.com/tndrle/node-sqlite3-wasm/blob/main/LICENSE>.
+
+> SQLite is in the public domain: <https://www.sqlite.org/copyright.html>.
+
 ## vscode-languageclient
 
 The client for the optional DITA language server (`vscode-languageclient`, `vscode-languageserver-protocol`,
@@ -59,6 +71,50 @@ MathML annotation). Bundled into the page script.
 
 > Copyright (c) 2021-2025 Ron Kok.
 > MIT licence — see <https://github.com/rontrz/temml/blob/main/LICENSE>.
+
+## SaxonJS
+
+Runs the project's Schematron rules. Shipped as Saxonica issues it, unmodified, in `out/node_modules/saxonjs-he`
+(SaxonJS) and `out/node_modules/xslt3-he` (its XSLT compiler), each with its licence.
+
+> Copyright © Saxonica Ltd. Saxonica Public License, Version 2.0, December 2024: see
+> `out/node_modules/saxonjs-he/LICENSE.txt`.
+>
+> DISCLAIMER. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS." ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+## SchXslt2
+
+Turns Schematron rules into XSLT 3.0 for SaxonJS; its transpiler, compiled, in `out/schematron/transpile.sef.json`.
+
+> Copyright (c) David Maus.
+> MIT licence — see <https://codeberg.org/SchXslt/schxslt2>.
+
+## Mammoth's reader, and what it uses
+
+Reads Word documents (`.docx`) for **Import Word Document…** and **Convert Word Document to DITA…**: the reading half
+of Mammoth (`mammoth`), which Visual DITA carries changed, with what it uses: reading the document's zip (`jszip`,
+`pako`, `lie`, `immediate`, `setimmediate`, `readable-stream`, `safe-buffer`, `string_decoder`,
+`process-nextick-args`, `isarray`, `core-util-is`, `inherits`, `util-deprecate`) and its helpers (`underscore`,
+`dingbat-to-unicode`, `base64-js`).
+
+> `mammoth`: Copyright (c) 2013, Michael Williamson. `dingbat-to-unicode`: Copyright (c) 2021, Michael Williamson.
+> BSD 2-Clause licence.
+>
+> `jszip`: Copyright (c) 2009-2016 Stuart Knightley, David Duponchel, Franz Buchinger, António Afonso. Offered under
+> the MIT licence or the GPL version 3; used here under the MIT licence.
+>
+> `pako`: Copyright (C) 2014-2017 by Vitaly Puzrin and Andrei Tuputcyn, MIT licence; its zlib port: (C) 1995-2013
+> Jean-loup Gailly and Mark Adler, zlib licence.
+>
+> `underscore`: Copyright (c) 2009-2022 Jeremy Ashkenas, Julian Gonggrijp, and DocumentCloud and Investigative
+> Reporters & Editors. `lie`: Copyright (c) 2014-2018 Calvin Metcalf, Jordan Harband. `immediate`: Copyright (c) 2012
+> Barnesandnoble.com, llc, Donavon West, Domenic Denicola, Brian Cavalier. `setimmediate`: Copyright (c) 2012
+> Barnesandnoble.com, llc, Donavon West, and Domenic Denicola. `readable-stream`, `string_decoder`, `core-util-is`:
+> Copyright Node.js contributors. `safe-buffer`: Copyright (c) Feross Aboukhadijeh. `process-nextick-args`: Copyright
+> (c) 2015 Calvin Metcalf. `isarray`: Copyright (c) 2013 Julian Gruber. `util-deprecate`: Copyright (c) 2014 Nathan
+> Rajlich. `base64-js`: Copyright (c) 2014 Jameson Little. MIT licence.
+>
+> `inherits`: Copyright (c) Isaac Z. Schlueter. ISC licence.
 
 ## Rust crates in the Visual DITA core
 
@@ -139,3 +195,55 @@ Portions of `curve25519-dalek` were originally derived from Adam Langley's Go ed
 under the same three conditions and disclaimer, with the third condition reading: "Neither the name of Google Inc.
 nor the names of its contributors may be used to endorse or promote products derived from this software without
 specific prior written permission."
+
+## The BSD 2-Clause Licence
+
+`mammoth`, `lop`, `option` and `dingbat-to-unicode`, with the copyright notices listed above, are covered by these
+terms:
+
+> Redistribution and use in source and binary forms, with or without modification, are permitted provided that
+> the following conditions are met:
+>
+> 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the
+>    following disclaimer.
+> 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+>    following disclaimer in the documentation and/or other materials provided with the distribution.
+>
+> THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+> WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+> PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY
+> DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+> PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+> CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+> OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+> DAMAGE.
+
+## The ISC Licence
+
+`inherits`, with the copyright notice listed above, is covered by these terms:
+
+> Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby
+> granted, provided that the above copyright notice and this permission notice appear in all copies.
+>
+> THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING
+> ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL,
+> DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+> WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE
+> USE OR PERFORMANCE OF THIS SOFTWARE.
+
+## The zlib Licence
+
+The zlib port in `pako`, (C) 1995-2013 Jean-loup Gailly and Mark Adler, is covered by these terms:
+
+> This software is provided 'as-is', without any express or implied warranty. In no event will the authors be held
+> liable for any damages arising from the use of this software.
+>
+> Permission is granted to anyone to use this software for any purpose, including commercial applications, and to
+> alter it and redistribute it freely, subject to the following restrictions:
+>
+> 1. The origin of this software must not be misrepresented; you must not claim that you wrote the original
+>    software. If you use this software in a product, an acknowledgment in the product documentation would be
+>    appreciated but is not required.
+> 2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original
+>    software.
+> 3. This notice may not be removed or altered from any source distribution.

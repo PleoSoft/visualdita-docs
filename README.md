@@ -46,6 +46,18 @@ palette, alignment), a ribbon, a right-click menu that offers only what the gram
 breadcrumb showing where you are. Paste from Word or a browser and the HTML becomes DITA structure, not a wall
 of text.
 
+**Word documents in, DITA out.** Right-click a folder › **Visual DITA** › **Import Word Document…** and a `.docx`
+becomes a map and its topics, one for each heading down to the depth you choose; a heading over a numbered list
+becomes a task. Word's numbered chapters and clauses are numbered the DITA way, and lists, tables, notes, figures,
+footnotes, equations and images come along. Lines lined up with tabs become tables, and a form's typed numbers
+become lists. What it read from the look, and what did not come across, it tells you —
+see [Converting a Word document](guide/writing.md#converting-a-word-document).
+
+**Refactor like code.** Select paragraphs, lists or a section › **Extract selection to new topic…**: the new topic
+goes into every map that uses this one, under it, and the links and reuse that pointed into what moved follow it,
+in every file. **Inline into parent topic…**, on the map, does the reverse. Like a refactoring in a code editor,
+nothing is left pointing at the old place.
+
 **Tables that behave.** CALS (`table`) and simple tables (`simpletable`, choice tables, properties) render as
 real tables with spans. Merge and split cells, insert and delete rows and columns, set a header row, Tab between
 cells. Drag a column border to set its width and it is written as DITA expresses it — `colspec/@colwidth` or
@@ -71,13 +83,23 @@ Both are described case by case in **[Review and compare](guide/review-and-compa
 headings and key definitions, fold subtrees, edit relationship tables in place, and open a topic beside the map.
 Titles are resolved from the referenced files and from keys.
 
+**Published as it looks.** **Publish…** (right-click a map or a topic, **Visual DITA ›**; or the editor's rocket)
+publishes it with the DITA-OT on your machine, as HTML5 or PDF with the look your topics have on the page, with the conditions of one of your DITAVAL files;
+kept in the project as DITA-OT's own project file, a DITA-OT server publishes it the same way. A project already set
+up for DITA-OT is published as it is: the deliverables of its own project files, and any output type its DITA-OT has. What DITA-OT says is in the Problems panel and on the page, by the element it
+is about. Numbered chapters and clauses show their numbers on the page as publishing counts them, with no number typed
+in. **Write Publishing Stylesheet…** gives the same look to DITA-OT run any other way —
+see [Publishing](guide/publishing.md).
+
 **Everything a DITA project actually uses.** Keys and key scopes, conref and conkeyref (reused content is shown
 resolved and read-only, one click opens its source; ranges with `conrefend`; pushes with `conaction` shown for
 what they are), **Reuse** to insert content by key or from a file, links with a target picker, images (sized as
 DITA says — `@width`, `@scale`, `@scalefit` — and resized by dragging a corner), **Where Is This File Used**, id
 refactoring, topic and map templates (including Oxygen framework templates), condition sets from your `.ditaval`
 files — a topic under a `ditavalref` branch previews through that filter by itself — and subject schemes.
-Glossary entries render as entries; a `term` or `abbreviated-form` by key reads as the glossary says. Footnotes
+Glossary entries render as entries; a `term` or `abbreviated-form` by key reads as the glossary says, an entry of a
+`glossgroup` included, and shows its definition on hover; **Insert › Glossary term…** picks one by its words, and
+**Add to Glossary…** makes words you select a new entry, where your glossary keeps its entries. Footnotes
 are numbered where they are written, index terms are small markers you can see and edit. The **DITA References**
 view lists what a topic uses — keys, conrefs, links, images — and what uses it. Rename or move a topic, map, image or
 folder in the Explorer and the references follow: the maps' entries and key definitions, links, reuse and images
@@ -101,6 +123,14 @@ learning domain, and specializations of them.
 **Project health.** **Visual DITA: Project Health Report** looks at the whole doc set: each map's size in topics and
 words, broken links, undefined keys, topics no map publishes and images nobody uses — every file one click away.
 
+**Search your DITA.** **DITA Search** (**Ctrl+Alt+F**) finds words in the text of your topics and maps as a reader
+reads it, never in the markup, as you type: grouped by topic, each place said for what it is (a title, a step, a note)
+with the words found marked, a click from its paragraph. Keep it to a kind of element (by class: your
+specializations count) or to the map the DITA Map view shows; a "phrase in quotes" is found exactly, and a misspelt
+word is searched as the nearest one in your project — see [Searching your content](guide/search.md).
+
+![DITA Search for "power": five places in four topics, each with what it is and the word marked; the step clicked, its topic open beside it](guide/images/search.png)
+
 **Conditions.** Select words and choose **Condition…** to tag them for an audience, platform or product, from
 your subject scheme's values or the ones already in use; **Conditions ▾ → Show condition tags** shows every
 conditional element's values on the page, and a condition set (`.ditaval`) previews what an output keeps.
@@ -117,7 +147,8 @@ switch.
 paragraph, a key no map defines, a reference to a file that is not there, reuse of an element of another type (or of
 content your document type does not have), a profiling value outside the subject scheme (your own conditions, like
 a `@jobrole`, included), an image without alt text, a duplicate id, a URL link without `scope="external"`, leftover draft content,
-a table row with the wrong number of cells. Shown on the page and in the Problems panel, for a topic open as a
+a table row with the wrong number of cells, a word your DITA glossary says not to use (with the term to use, as a
+fix). Shown on the page and in the Problems panel, for a topic open as a
 page or as XML; switch any off with `visualDita.rulesOff`. A topic without a short description shows a faint
 **Short description** line under its title: click it, or press Tab in the title, and type. In the XML, the quick fix
 **Add a short description** does the same.
@@ -209,11 +240,17 @@ version, or making one the project's version (for the project, in its settings).
 | `visualDita.author` | Name written into comments and tracked changes. Empty: your OS user name. |
 | `visualDita.trackChanges` | Offer Track changes. A team reviewing through Git turns it off in the project's settings; tracked changes already in a file still show, to accept or reject. |
 | `visualDita.validation` | Check documents against their document type, and complete elements, attributes and values in the XML. The authoring rules are switched off separately. |
-| `visualDita.rulesOff` | Authoring rules to switch off: `shortdesc`, `empty`, `subject-scheme`, `keys`, `files`, `reuse`, `alt`, `ids`, `external-scope`, `draft`, `table`, `tracked` (tracked changes left in a file when `visualDita.trackChanges` is off). |
+| `visualDita.rulesOff` | Authoring rules to switch off: `shortdesc`, `empty`, `subject-scheme`, `keys`, `files`, `reuse`, `alt`, `ids`, `external-scope`, `draft`, `table`, `tracked` (tracked changes left in a file when `visualDita.trackChanges` is off), `terms` (a word your glossary says not to use). |
+| `visualDita.terminology.avoid` | The `glossStatus` values that mark a form of a term not to use in your glossary entries. Default: `prohibited`, `obsolete`, `deprecated`. |
 | `visualDita.ditaVersion` | The DITA version, 1.0 to 1.3, of documents whose DOCTYPE names none (`-//OASIS//DTD DITA Task//EN`, as most do). A DOCTYPE naming a version always gets that version; a document type your version lacks opens on the next version up that has it. Default: 1.3. |
 | `visualDita.standardDita` | The built-in DITA versions your project uses: 1.0 to 1.3 unless you unload one, and the DITA 2.0 draft (`2.0-draft`) only when you load it. Set by **Load** and **Unload** in the DITA Document Types view. |
 | `visualDita.packages` | Where your Visual DITA packages (signed `.vdpkg` files) are: files, or folders directly holding them. Default: `.dita` and the project folder. |
 | `visualDita.rootMap` | Root map used to resolve keys. Empty: the map that reaches the document. |
+| `visualDita.ditaOt` | The DITA-OT **Publish…** uses: its folder. Empty: `DITA_HOME`, else the `dita` on the PATH. |
+| `visualDita.publishing.look` | Publish with Visual DITA's look (the stylesheet for HTML5, the theme for PDF), or, off, with DITA-OT's own. |
+| `visualDita.publishing.html5` | DITA-OT's parameters for HTML5, name → value. Default: the stylesheet copied beside the pages (`args.copycss`, `args.csspath`), the map's contents beside every topic (`nav-toc`: `full`), every page in the output (`generate.copy.outer`: `3`). `null` leaves one out. |
+| `visualDita.publishing.pdf` | DITA-OT's parameters for PDF, name → value. Default: none. `null` leaves one out. |
+| `visualDita.publishing.topic` | DITA-OT's parameters for a topic published alone, over its output's. Default: only the topic (`link-crawl`: `map`), no warning about its map's folder (`outer.control`: `quiet`), no contents (`html5.toc.generate`: `no`). |
 | `visualDita.explorerBadges` | Mark topics and maps in the Explorer: references that do not resolve (their count), `!` for a document type not licensed, a topic no map uses greyed. |
 | `visualDita.updateReferences` | When you rename or move a topic, map, image or folder in the Explorer, update the references to it and a moved file's own: `prompt` (ask, with **Show Changes First**), `always` or `never`. Keys and fragments stay as they are. |
 | `visualDita.templates` | Folders with topic and map templates for **New Topic from Template…** and **New Map from Template…**. The standard DITA types and your personal templates (`~/.visual-dita/templates`, filled by **Save as Template…**) are always offered too. |
@@ -241,7 +278,7 @@ their elements are unsupported.
 ## Agent tools (MCP)
 
 The extension registers an MCP server with VS Code — it appears in the editor's MCP list and starts on demand,
-so "stopped" before anything has used it is normal. Twelve tools, all read-only and all answering from the
+so "stopped" before anything has used it is normal. Thirteen tools, all read-only and all answering from the
 grammars your project actually resolves to:
 
 | Tool | Answers |
@@ -249,7 +286,7 @@ grammars your project actually resolves to:
 | `dita_vocabulary_overview` | every element this doc set may use, by domain, with what each specialization derives from |
 | `dita_describe_element` | one element: content model, attributes and their allowed values, what accepts it |
 | `dita_search_vocabulary` | find an element or attribute by part of its name |
-| `dita_check_topic` | the document checked against the grammar it resolves to, with the editor's own checker, then the authoring rules, each finding with its line |
+| `dita_check_topic` | the document checked against the grammar it resolves to, with the editor's own checker, then the authoring rules and the project's Schematron rules, each finding with its line |
 | `dita_grammar_health` | which document types resolve to a grammar, and which fall back to base DITA |
 | `dita_resolve_key` | what a key means here, through DITA 1.3 key scopes; without a key, every key in scope with its text and target |
 | `dita_where_used` | everything referencing a file, an id or a key |
@@ -258,11 +295,12 @@ grammars your project actually resolves to:
 | `dita_templates` | your templates, and a new topic or map filled in from one the way the editor does it |
 | `dita_profiling_values` | the values audience, platform, product… may take (subject scheme, else those in use), and the condition sets |
 | `dita_find_reusable` | content with an id containing some words, with the conref or conkeyref to reuse it |
+| `dita_search` | the project's text as DITA Search finds it: words or a phrase, kept to a kind of element or a map, each place with its file and what it is |
 
 Every vocabulary answer names the grammar it came from, so an agent reading a fallback can tell.
 
 The server follows the project's settings — `visualDita.packages`, `templates`, `rootMap`, `rulesOff`,
-`trackChanges`, `ditaVersion` and `standardDita` — so an agent gets the answers the editor would give. Started by VS Code, it is handed the editor's
+`trackChanges`, `ditaVersion`, `standardDita` and `terminology.avoid` — so an agent gets the answers the editor would give. Started by VS Code, it is handed the editor's
 settings and restarted when one changes; started on its own, it reads the project's `.vscode/settings.json`, the
 settings the team shares (one only in your user settings cannot reach it there). With none set, it uses the
 packages in `.dita/` and the project folder, every `templates` folder in the project and your personal templates,
@@ -291,21 +329,28 @@ the agent in the project folder, where `.mcp.json` is.
 ## Requirements
 
 - VS Code 1.106 or newer.
-- Nothing else: no XML extension, no Java, no server. Validation and completion come from Visual DITA itself.
-  An XML extension you already use (Red Hat XML, DitaCraft) does not know Visual DITA's grammars; when it reports
-  problems in a DITA file, Visual DITA offers once to disable it for that workspace. `visualDita.validation`
-  switches Visual DITA's own checking off.
+- Nothing else for writing: no XML extension, no Java, no server. Validation and completion come from Visual DITA itself.
+  Visual DITA works alongside Red Hat XML: it does not know Visual DITA's grammars, so when it reports problems in a
+  DITA file, Visual DITA offers once to stop its checks on DITA files (in your own settings); it goes on checking
+  your other XML. Another XML extension that checks DITA files (DitaCraft) it offers to disable for that workspace.
+  `visualDita.validation` switches Visual DITA's own checking off.
 - Git, for comparisons: VS Code's built-in Git support, on by default.
+- DITA-OT 4 or later and Java 17 or later, only to publish with **Publish…** — both free:
+  [Publishing: before your first publication](guide/publishing.md#before-your-first-publication).
 - Node.js, only to run the agent server standalone outside VS Code.
 
 ## Privacy
 
 Visual DITA collects nothing and sends nothing anywhere. It reads and writes the files in your workspace, the
-folders your settings point at, and its own folder `~/.visual-dita` (your personal templates, the standard DITA
-renewals you import, and the date of the last licence check). Nothing leaves your machine. VS Code's own telemetry settings are unaffected by it.
+folders your settings point at, its own folder `~/.visual-dita` (your personal templates, the standard DITA
+renewals you import, the date of the last licence check, and the agent tools' own project index), and VS Code's own
+storage for the workspace (the project index: what DITA Search has read). Nothing leaves your machine. VS Code's own
+telemetry settings are unaffected by it.
 
-Visual DITA's one compiled module, `out/vd-core.wasm`, is Pleosoft's own code: it runs inside VS Code's JavaScript
-engine, like the rest of the extension, with no access to your files or the network.
+Visual DITA's compiled modules run inside VS Code's JavaScript engine, like the rest of the extension, with no access
+to the network: `out/vd-core.wasm` is Pleosoft's own code, with no access to your files; SQLite
+(`out/node_modules/node-sqlite3-wasm`) keeps the project index, and reads and writes only its database, in VS Code's
+storage for the workspace.
 
 ## This repository
 

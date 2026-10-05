@@ -6,7 +6,8 @@
 
 Install **Visual DITA** from the VS Code Marketplace (Extensions view, search for *Visual DITA*). It needs VS Code
 1.106 or newer and nothing else: no Java, no XML extension, no server. The standard OASIS DITA document types are
-built in, so a doc set that uses them works at once, for free.
+built in, so a doc set that uses them works at once, for free. Only publishing (HTML5, PDF) needs DITA-OT on your
+computer, installed once: see [Publishing](publishing.md#before-your-first-publication).
 
 ## Open your content
 

@@ -139,7 +139,16 @@ An Oxygen framework or a DITA-OT plugin usually also has topic templates and Aut
 Templates and CSS…** (also right-click a folder in the Explorer › **Visual DITA**) takes both from the folder you
 pick and adds them to the project's settings (`visualDita.templates`, `visualDita.css`): your templates are offered
 by **New Topic from Template…**, and your stylesheets style the page where they are plain CSS.
-**Visual DITA: Turn Framework Styling On or Off** takes the styling away if a page ever looks wrong. In a folder VS
-Code does not trust (Restricted Mode), Author CSS from the workspace is not applied until you trust the folder.
+
+From an Oxygen framework, the stylesheets taken are the ones its `.framework` or `.exf` file uses: its default style
+and those always on, not its alternate or print styles, nor what it takes from Oxygen's own DITA framework. Visual
+DITA styles standard DITA itself, so Oxygen's own frameworks give their templates but not their CSS: your stylesheets
+are for what is yours, your own elements and your company's look.
+
+The DITA Document Types view shows what is in use under **Templates and styling**: the template folders and the
+stylesheets, each a click away, and a setting that names nothing. Its buttons turn the styling off and on, and
+run **Use Framework Templates and CSS…** again. **Visual DITA: Turn Framework Styling On or Off** takes the styling
+away if a page ever looks wrong. In a folder VS Code does not trust (Restricted Mode), Author CSS from the workspace
+is not applied until you trust the folder.
 
 Back to the [user guide](README.md).
