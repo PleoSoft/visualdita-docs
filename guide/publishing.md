@@ -59,6 +59,16 @@ gives DITA-OT a small map that holds the topic and refers to that map for its ke
 else of that map. HTML5 has the pages it links to beside it, so its links work. A topic in no map is published without
 keys. The DITA-OT parameters for a topic published alone are a setting of their own, `visualDita.publishing.topic`.
 
+A map that is part of a publication, a chapter's own map, say, is published the same way: its topics, with the keys of
+the publication it is part of, as they read in Visual DITA.
+
+A link to another publication through its key scope (`<xref keyref="admin.users"/>`, your map referring to the admin
+guide as a peer) shows on the page and opens its topic in Visual DITA. DITA-OT, publishing one publication, does not
+read the other's keys: such a link is published as its own text, without a link, and as nothing when it has no text.
+Give it its text to keep the words (`<xref keyref="admin.users">Managing users</xref>`); to keep a link too, give it the
+address of the other publication's published page as well (`href="https://docs.example.com/admin/users.html"
+scope="external" format="html"`), which DITA-OT follows when it does not find the key.
+
 ### Your own DITA-OT setup
 
 A project already set up for DITA-OT is published as it is set up. **Publish…** first offers the deliverables of your
@@ -117,7 +127,8 @@ Each deliverable's output goes to its own folder in DITA-OT's output folder (`ou
 with `-o`). Commit the `publishing` folder with your topics; at the same moment Visual DITA offers to keep `out/` out of
 Git. The file is yours too: Visual DITA only adds a deliverable when you publish a new combination, and leaves the
 others, yours included, as they are. A project whose `publishing/project.xml` is already there (a colleague's) is
-published through it without asking. **Copy Server Command** in the message after publishing copies the command.
+published through it without asking. A map that is part of a publication (a chapter's) is kept as it is, so DITA-OT
+publishes it without its publication's keys: keep the publication's map. **Copy Server Command** in the message after publishing copies the command.
 
 ### DITA-OT on your machine
 

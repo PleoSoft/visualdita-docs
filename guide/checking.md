@@ -114,7 +114,10 @@ fixes calling others, and parameters of an abstract pattern the fix declares.
 
 **Visual DITA: Project Health Report** (Command Palette, or the DITA Map view's **…** menu) looks at the whole
 doc set: each map's size in topics and words, links to files that are not there, keys no map defines, topics no map
-publishes, and images nobody uses; topics in DITA `.xml` files count too. Every file is a link that opens it. It is
+publishes, images nobody uses, and key definitions nothing uses (a product name, a phrase or a link target defined in
+a map and never referred to; keys on a topic's entry are left out, as they are there for links to come); topics in
+DITA `.xml` files count too. A key is checked where its topic reads it: a key defined only in another publication, or
+in another release's maps, is a key no map defines for this topic. Every file is a link that opens it. It is
 there at once, from what DITA Search already knows of your project, and counts what you have written but not yet
 saved.
 
@@ -122,7 +125,7 @@ saved.
 
 **Check References**, the checklist button of the **DITA References** view, lists at the top of the view what does
 not resolve in the topic or map you are on: a file or image that is not there, an id a link or conref names that is
-not in its file, a key no map defines, a conref that names no element, and a link to a topic no map publishes (it
+not in its file, a key no map defines for it (in the publication it is read in), a conref that names no element, and a link to a topic no map publishes (it
 goes nowhere once published). Each opens the source at its line; the count shows on the view. **Check References in
 the Whole Project**, in the view's menu, does the same for every topic and map, at once: both come from the reading of
 your project that DITA Search keeps, with what you have written but not yet saved. Links to web addresses, and those

@@ -74,14 +74,24 @@ is published.
 
 ## Conditions and branches
 
-**Conditions ▾** previews the map through a condition set. An entry that publishes a branch through its own
-condition set (`ditavalref`) shows it on its row, and a topic under such a branch previews through that condition
-set when you open it.
+**View as ▾** previews the map through a condition set, or with the values you choose, as on a topic's page: what
+is left out **Dimmed** or **Hidden**, as you choose in the bar above the map while you preview, values saved with
+**Save as .ditaval…**, a condition set opened with **Open .ditaval**. Right-click an entry ›
+**Condition…** to set its conditions, or set them in **Properties**. The topics' titles read as the set's readers get
+them, a key in a title resolved under the set. As on a topic's page, what the view leaves out is kept as it is while
+you preview: an entry it leaves out is not moved, removed or changed, its conditions neither, and right-click on it
+offers only **Open** (**✕** stops previewing, to change it). What you choose here, the topics you open next open with, as from a topic's page. An entry that publishes a branch through its own condition set (`ditavalref`) shows it on its row, and a
+topic under such a branch previews through that condition set when you open it, unless you have chosen one in
+**View as ▾**.
 
 ## The DITA Map view
 
 The **DITA Map** view in the Visual DITA side bar shows the map that publishes the topic you are working on, and
 follows you as you open other topics; click a title to open that topic. With several root maps it lists them all.
+A map's key definitions are folded into one **Keys** row, with how many there are, where the first of them is: expand
+it to see them; **Filter** finds them too.
+The map it shows is also the one a topic's keys come from, when it has the topic. Another publication your map refers
+to as a peer (`scope="peer"`) is one entry, to open, not expanded into the map.
 Opening a map shows that map alone, and so does **Choose Map…** in its title bar, or right-clicking a map in the
 Explorer › **Visual DITA** › **Show in Map Panel**; **Show All Maps**, beside them in the title bar (or the first
 entry of **Choose Map…**), lists them all again. The map shown alone is also what **DITA Search** keeps to (see

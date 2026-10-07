@@ -194,9 +194,15 @@ being there. A converted Word document is written this way. Your publishing styl
   work too. A link's text and target resolve on the page: a link with no text of its own shows the title of what it
   points at, by key too. With the caret on a link, a small bar shows where it goes, with **Open**, **Change…**,
   **Key…** and **Remove link**. **Open** on a link to an element opens its topic with the caret in that element.
+  **Key…** lists your publication's keys, and one entry for each other publication your map refers to as a peer
+  (`admin.…`): choose it for that publication's keys.
 - **Images**: **Image** on the ribbon picks a file, or paste or drop an image onto the page — it is saved in an
-  `images` folder next to the topic. Drag a corner to resize it; the size is written as DITA expresses it
-  (`@width`, `@scale`, `@scalefit`).
+  `images` folder next to the topic. A file picked outside the project is copied into that folder first, Visual DITA
+  asking before it does: outside the project, it could not be shown on the page, nor found by anyone else or by a
+  publication made elsewhere. Drag a corner to resize it, or set its size in the image's bar: a width
+  (`300px`), a percentage of its natural size (`50%`), or **Fit to page**, as wide as the page; the size is written as
+  DITA expresses it (`@width`, `@scale`, `@scalefit`). An image sits in the line, beside the text or the other images of its figure,
+  as it is published; the image's bar switches it between **Inline** and **On its own line** (`@placement`).
 - **Videos and sounds** (`<object>`) show as a card saying what they are and where, with a player: a sound or video
   file of your project plays on the page (mp3, wav, mp4), and **Open** opens it beside the topic. A video another
   site plays (a YouTube embed, Oxygen's `outputclass="iframe"`) plays in the browser: **Open in browser**; YouTube
@@ -217,7 +223,10 @@ being there. A converted Word document is written this way. Your publishing styl
   is the one the reused content can fill; Visual DITA says so when the reused content has elements your document
   type does not.
 - **Keys**: text defined by a key (`<keyword keyref="product"/>`) shows its value, resolved through the map and its
-  key scopes.
+  key scopes. The map is the one you have open when it has the topic (a chapter's map stands for its publication),
+  else the nearest map that publishes it; `visualDita.rootMap` names one map for every topic instead. A key of
+  another publication your map refers to as a peer (`<mapref href="../admin/admin.ditamap" scope="peer"
+  keyscope="admin"/>`) is written with that key scope, `admin.users`, and resolves to that publication's key.
 - **Glossary terms**: right-click › **Insert › Glossary term…** picks a term of your glossary by its words; point at a
   glossary term to see what it means; select words and **Add to Glossary…** to make them a new entry. See
   [Your glossary](glossary.md).
@@ -250,12 +259,84 @@ with the LaTeX kept for the next edit), or to edit the MathML itself.
 
 Select words and choose **Condition…** in the mini toolbar to give them an audience, a platform or a product — or a
 condition of your own document type (an attribute domain: a `@jobrole` your specialization adds). The values offered
-are your subject scheme's, or the ones the project already uses. A value written the generalized way
-(`props="jobrole(admin)"`) counts as `jobrole="admin"`. **Conditions ▾** on the ribbon
-previews the page through a condition set (`.ditaval`) — what it excludes is greyed out — and **Show condition tags**
-labels every conditional element with its values.
+are your subject scheme's, or the ones the project already uses; type another and press **Apply**. A value written
+the generalized way (`props="jobrole(admin)"`) counts as `jobrole="admin"`.
 
-![With the "installer" condition set, the step for installers is greyed out and labelled](images/conditions.png)
+Content with conditions is always marked, quietly, so you see at a glance what the condition sets will do to the
+page: a bar in the page's left margin, all in one column, beside every block that carries some (a paragraph, a list
+item, a step, a note, a section, a table or one of its rows) and beside the lines of words that carry some, those
+words underlined with dots. Point at it to see its values. With the caret in it, a bar says what carries them
+(*Phrase · audience: admin*): **Change…** opens the picker for it, **Remove** takes them off (words that were only
+wrapped to carry them are unwrapped).
+
+![The steps carrying conditions marked in the left margin, the words carrying some underlined with dots; the caret in the homeowners' step, its bar saying Step · audience: homeowner, with Change… and Remove](images/condition-bar.png)
+
+What **Condition…** applies to:
+
+- some words of a paragraph: those words (wrapped in a phrase); the picker says what they are inside of already;
+- all the words of a paragraph, or of a phrase: that paragraph, or that phrase, its values ticked as Properties shows
+  them;
+- a whole element — a table, a section, a list: right-click in it and pick it under **Condition**, which lists the
+  elements around the pointer, innermost first, with their values; or click it in the breadcrumb below the page, then
+  **Condition…**; or set its conditions in **Properties**.
+
+**View as ▾** on the ribbon shows the page as a reader gets it: through a condition set of your project (`.ditaval`),
+or with the **Values** you choose (`audience: admin`, with no file to write first): content marked for other values is
+left out, content marked for them or not marked at all stays. Choose values of several conditions and they all hold;
+two values of one, either. **All content** shows the page as written. Each condition set is listed by its name, with
+a line under it saying what it does (*platform: web only · audience: not admin*); hover over it for its rules in full.
+With many condition sets and values, a filter finds the one you want (type part of it, a name or a value; **Enter**
+takes the first one left).
+
+![View as open: All content, the condition sets homeowner, installer and review-installer, each with a line saying what it does (audience: not installer, audience: installer flagged), New condition set…, and the values to view as](images/view-as-menu.png)
+
+Your choice stays with you: each topic or map you open next opens with it, dimmed or hidden as you left it, until you
+choose another or click **✕**. Pages already open keep their own. A choice the project no longer offers (a condition
+set since deleted, values nothing uses any more) is let go, and the status bar says so.
+
+Keys are resolved as that reader gets them: a key your map defines for one audience and again for everyone reads as
+its readers' definition, in the text, the links and the content reused by key.
+
+While you preview, a bar above the page says what you are seeing (*Viewing as audience: admin*, *Viewing through
+print.ditaval*), with:
+
+- **Excluded content**: **Dimmed**, greyed out and labelled where it is; or **Hidden**, off the page, a reader's
+  view (both editable: see below);
+- **Open .ditaval**, for a condition set: its file in its editor beside the page, to change its rules;
+- **Save as .ditaval…**, for values: the values you chose as a new condition set, to publish with, and DITA-OT
+  leaves out what the page left out (**Open** in the confirmation opens it beside the page);
+- **✕**, to stop previewing (as **All content** in the menu).
+
+![Viewing through installer.ditaval, Excluded content Dimmed: the installers' step and words greyed out and labelled excluded · audience=installer, the steps carrying conditions marked in the left margin](images/conditions.png)
+
+**Editing while you preview.** You edit what the view's readers get: the content marked for them, and the content
+every reader gets. What the view leaves out is kept as it is, dimmed or hidden. An edit that would change it is not
+made, and the status bar says why, for example:
+
+- typing in it;
+- deleting a selection that runs across it;
+- Backspace or Delete that would merge a paragraph into it;
+- deleting a table column that holds one of its cells;
+- changing its conditions (**Condition…**, **Properties**).
+
+To change what the view leaves out, stop previewing (**✕**, or **All content**) and change it there. Dimmed, you can
+still click into it to read and copy it, and what shows at the caret offers nothing that would change it: no bar for
+its conditions, a link, a table or an image, and the right-click menu has only what reads (Copy, Open link); the
+ribbon stays as it is, its changes refused there the same way. Hidden, the caret does not go into it.
+
+Text you write while you preview carries no conditions: every reader gets it. To mark it for some readers, use
+**Condition…**. Since your choice in **View as ▾** stays with you from page to page, an edit refused on a page you
+just opened may come from the view: the bar above the page says which one.
+
+**New condition set…**, at the end of the condition sets in **View as ▾** (or in the Explorer's **Visual DITA** menu
+on a folder), makes an empty `.ditaval` and opens it in its editor, to write its rules.
+
+In that editor each rule reads as a sentence (*Exclude where attribute audience is admin*), with the values your
+project uses to pick, and says what it does to your content; a flag shows its colour, background and style on a
+sample. The most specific rule decides: one naming the value, then one naming the attribute alone, then one naming
+neither.
+
+**Condition tags**, next to **View as ▾**, writes every conditional element's values beside it, previewing or not.
 
 ## Attributes and the topic's metadata
 

@@ -10,6 +10,7 @@
   <a href="https://github.com/PleoSoft/visualdita-docs/issues">Issues</a>
 </p>
 
+
 **Write DITA the way you write in Word — inside VS Code.**
 
 Visual DITA opens `.dita` topics as a page you type on, `.ditamap` and `.bookmap` files as an outline, and
@@ -132,8 +133,9 @@ word is searched as the nearest one in your project — see [Searching your cont
 ![DITA Search for "power": five places in four topics, each with what it is and the word marked; the step clicked, its topic open beside it](guide/images/search.png)
 
 **Conditions.** Select words and choose **Condition…** to tag them for an audience, platform or product, from
-your subject scheme's values or the ones already in use; **Conditions ▾ → Show condition tags** shows every
-conditional element's values on the page, and a condition set (`.ditaval`) previews what an output keeps.
+your subject scheme's values or the ones already in use; **Condition tags** shows every conditional element's
+values on the page, and **View as ▾** shows the page as a reader gets it, through a condition set (`.ditaval`) or the
+values you choose.
 
 **Topic info.** The metadata (prolog) is not on the published page, so it is not on yours either: it is in the Topic
 pane, next to Properties and Review. Created and revised dates with date pickers, authors and keywords as chips
@@ -245,7 +247,7 @@ version, or making one the project's version (for the project, in its settings).
 | `visualDita.ditaVersion` | The DITA version, 1.0 to 1.3, of documents whose DOCTYPE names none (`-//OASIS//DTD DITA Task//EN`, as most do). A DOCTYPE naming a version always gets that version; a document type your version lacks opens on the next version up that has it. Default: 1.3. |
 | `visualDita.standardDita` | The built-in DITA versions your project uses: 1.0 to 1.3 unless you unload one, and the DITA 2.0 draft (`2.0-draft`) only when you load it. Set by **Load** and **Unload** in the DITA Document Types view. |
 | `visualDita.packages` | Where your Visual DITA packages (signed `.vdpkg` files) are: files, or folders directly holding them. Default: `.dita` and the project folder. |
-| `visualDita.rootMap` | Root map used to resolve keys. Empty: the map that reaches the document. |
+| `visualDita.rootMap` | Root map used to resolve keys. Empty: the map you have open when it has the document, else the nearest map that does. |
 | `visualDita.ditaOt` | The DITA-OT **Publish…** uses: its folder. Empty: `DITA_HOME`, else the `dita` on the PATH. |
 | `visualDita.publishing.look` | Publish with Visual DITA's look (the stylesheet for HTML5, the theme for PDF), or, off, with DITA-OT's own. |
 | `visualDita.publishing.html5` | DITA-OT's parameters for HTML5, name → value. Default: the stylesheet copied beside the pages (`args.copycss`, `args.csspath`), the map's contents beside every topic (`nav-toc`: `full`), every page in the output (`generate.copy.outer`: `3`). `null` leaves one out. |
@@ -351,11 +353,6 @@ Visual DITA's compiled modules run inside VS Code's JavaScript engine, like the 
 to the network: `out/vd-core.wasm` is Pleosoft's own code, with no access to your files; SQLite
 (`out/node_modules/node-sqlite3-wasm`) keeps the project index, and reads and writes only its database, in VS Code's
 storage for the workspace.
-
-## This repository
-
-This is where Visual DITA is documented and where you report bugs and ask for features. The extension itself
-is distributed through the VS Code Marketplace; its source is not published here.
 
 ## Support
 

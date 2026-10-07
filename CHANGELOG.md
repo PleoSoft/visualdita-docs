@@ -1,5 +1,129 @@
 # Changelog
 
+## 0.7.0
+
+### Conditions
+
+- **View as ▾** (the ribbon's conditions menu, under a name that says what it does) shows the page, or the map, as a
+  reader gets it: through a condition set, or with the values you choose (`audience: admin`) with no condition set to
+  write first: content marked for other values is left out, content marked for them or not marked at all stays;
+  values of several conditions combine.
+- Keys are resolved as that reader gets them: a key defined in the map for one audience and again for everyone reads
+  as its readers' definition, in the text, the links and the content reused by key, and in the topics' titles a map
+  shows.
+- While a condition set or a view is previewed, a bar above the page says which, with **Excluded content**: **Dimmed**,
+  greyed out and labelled where it is, or **Hidden**, off the page (a reader's view); either way you edit what the
+  readers get, while what the view leaves out is kept as it is, its conditions too (to change it, stop previewing);
+  **Open .ditaval** for a condition set, its file in its editor beside the page; **Save as .ditaval…** for a view, a
+  new condition set to publish exactly what the page showed (**Open** in the confirmation opens it beside the page);
+  and **✕** to stop previewing (*Viewing as audience: admin*, *Viewing through print.ditaval*). The same on a map's
+  page.
+- **New condition set…**, in **View as ▾** and in the Explorer's **Visual DITA** menu on a folder, makes an empty
+  `.ditaval` and opens it in its editor to write its rules. **View as ▾** lists the condition sets as they are as soon
+  as one is made or deleted, in VS Code or outside it.
+- The condition set editor reads each rule as a sentence (*Exclude where attribute audience is admin*), offers the
+  values the project uses, says what each rule does to the content, and shows a flag's colours and style on a sample;
+  it fits beside a page, its rules wrapping instead of scrolling sideways.
+- On a map, right-click an entry › **Condition…** sets its conditions with the same picker as on a topic.
+- A topic only read (a file VS Code keeps read-only, an earlier version from Git) keeps the ribbon's View group:
+  **View as ▾**, **Condition tags**, **Tags**.
+- **View as ▾** is the choice alone: **All content**, the condition sets and the **Values**; a long list gets a filter
+  (type part of a value, **Enter** takes the first one left).
+- **View as ▾** lists each condition set by its name, with a line under it saying what it does (*platform: web only ·
+  audience: not admin*), its rules in full on hover.
+- The choice in **View as ▾** stays with you: each topic or map you open next opens with it, dimmed or hidden as you
+  left it, until you choose another or **✕**; pages already open keep their own.
+- Content with conditions is marked on the page, always and quietly: words carrying some are underlined with dots, a
+  paragraph, a list item, a step, a note, a table row or any block carrying some has a bar in the page's left margin,
+  all in one column, and so do the lines of words carrying some; their values show on hover. **Condition tags**,
+  a button of its own in **View**, writes them beside it, the margin bar staying as it is.
+- With the caret in conditioned content, a bar says what carries the conditions and their values, with **Change…** and
+  **Remove** (words that were only wrapped to carry them are unwrapped).
+- Right-click › **Condition** lists the elements around the pointer, innermost first, each with its values
+  (*Paragraph · platform: linux*, *Section*, *Topic*), and **Selected words** first when there are some; pick one to set
+  its conditions. Pointing at one outlines it on the page.
+- **Condition…** on all the words of a paragraph or a phrase sets the paragraph's or the phrase's own conditions, its
+  values ticked as Properties shows them, instead of wrapping its words again; on an element selected in the
+  breadcrumb (a table, a section), it sets that element's; on some words, the picker says what they are inside of.
+- The values offered include those the open topic uses, set in Properties and not saved yet.
+
+### Keys
+
+- A topic's keys come from the map you have open when that map has the topic: open a publication's map and its topics
+  read with its keys, the product name and the other text it defines; with a chapter's map open, its publication's.
+  Otherwise from the nearest map that publishes the topic. `visualDita.rootMap` still names one map for every topic.
+- A map that refers to other publications as peers (`scope="peer"`) is a publication of its own: its topics get their
+  keys from it, and the DITA Map view lists each peer publication as one entry, to open, instead of all its contents.
+- A link, or reused content, by another publication's key through the key scope its peer map reference gives it
+  (`admin.users`) resolves, as soon as you write it: Visual DITA reads that publication's keys the first time a topic
+  uses one, and the link opens its topic there.
+- A link's **Key…** offers the other publications your map refers to as peers, one entry each (`admin.…`); choose
+  one for its keys.
+- **Where used**, and **Referencing** in DITA References, list the topics of other publications that link to a topic
+  through its key scope, and answer at once in a large documentation set.
+- Check References, the Explorer's marks and the Project Health Report check a key where its topic reads it, as its
+  page does: a key defined only in another publication, or another release, is a key no map defines for it; a key of
+  another publication through its key scope is defined. The Project Health Report also lists the key definitions
+  nothing uses.
+- The DITA Map view folds a map's key definitions into one **Keys** row, with how many there are, so that hundreds of
+  them no longer push its table of contents out of sight; **Filter** finds them there too.
+
+### Large projects
+
+- In a large documentation set a topic opens with its keys at once, the first one of a window too: the maps a topic is
+  read in are read once, and again when one of them changes; the DITA Map view reads a publication's entries when you
+  expand it, or open one of its topics, instead of every publication's at once, and finds the publication of the topic
+  you open among hundreds; the keys of a big publication, and the titles of its map, are there at once; opened again,
+  the publications are not looked for again.
+- A large documentation set is read about four times faster the first time, and opened again, Visual DITA finds
+  what changed in a second instead of seconds: DITA Search, Check References and the Explorer's marks are ready
+  sooner.
+- **View as ▾** offers the values every topic and map of the project uses, and every subject scheme's, however large
+  the project; it looked at the first 5,000 topics and 200 maps only.
+- The Explorer's marks are worked out again in about a second after a change in a large documentation set, where
+  publications refer to each other as peers, instead of several seconds.
+- **Publish…** and **Publish Map…** on a topic find the maps that hold it at once in a large documentation set; a
+  topic published alone takes its keys from the map it is read in, as its page does.
+
+### Fixed
+
+- A map that is part of a publication (a chapter's own map) is published with the keys of the publication, as its
+  topics read in Visual DITA; it was published without them, its product names and other key text empty.
+- In the DITA Map view, the rocket in the title bar publishes the map shown, whichever row is selected, instead of
+  the selected topic alone.
+- The DITA Map view listing several maps titles each map's topics with that map's own keys (a product name of one
+  release in that release's map), instead of the first map's.
+- The Project Health Report counts a map's own topics: another publication it refers to as a peer (`scope="peer"`)
+  is counted with its own map, not added to this one.
+- A link brought back by undo shows its title, and whether its target is there, at once, instead of after the page
+  was opened again.
+- **Condition…** on selected words: a value typed and not yet confirmed with **Enter** is applied with **Apply**,
+  instead of being dropped; the words then show their condition, and the status line says what was set.
+- **Properties** of a map entry offers the condition values to tick (audience, platform, product…), as on a topic.
+- With a condition set (`.ditaval`) in front, **Properties**, **Review** and **Topic** are empty and say why, instead
+  of showing the topic behind it, which a change there would have gone to.
+
+### Images
+
+- An image, a video or a sound chosen from outside the project is copied into it before it is inserted: Visual DITA
+  asks first, then copies it into `images/` (videos and sounds into `media/`) next to the topic and inserts the copy.
+  Outside the project it could not be shown on the page, and no one else, nor a publication made elsewhere, would
+  find it.
+
+## 0.6.1
+
+### Images
+
+- **Fit to page** in the image's bar makes an image as wide as the page (`scalefit="yes"`); pressed again, its
+  natural size.
+
+### Fixed
+
+- Several images in a figure sit side by side on the page, as DITA places them and as they are published, instead of
+  one below the other; an image with `placement="break"`, an alignment or fitted to the page keeps a line of its own.
+- A percentage typed in an image's **Width** (`50%`) is written as DITA's `scale="50"`, a percentage of its natural
+  size, instead of a width DITA does not take; a size typed there replaces the scale or the fit it contradicts.
+
 ## 0.6.0
 
 ### DITA Search
