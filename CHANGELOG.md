@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.7.3
+
+### Keys
+
+Keys read as published, as DITA-OT resolves them, in five more cases:
+
+- A key the map defines above a key scope stays that key inside the scope, also where the scope defines the same
+  name: the scope's own definition is the one its qualified name gives (`eu.product`).
+- A map of keys referenced from several places (a common map of keys in two key scopes) gives its keys to each.
+- Within a key scope, a key a map defines wins over the same key defined in a submap it references, wherever the
+  reference to the submap is written.
+- A key that refers to another key (`<keydef keys="alias" keyref="real"/>`) reads as that key.
+- A key's link text with markup in it reads whole (`The <keyword>Pro</keyword> model`).
+
 ## 0.7.2
 
 ### Keys
