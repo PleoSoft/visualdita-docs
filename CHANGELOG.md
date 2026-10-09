@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.2
+
+### Keys
+
+- A key scope named on both a map reference and the map's own root element (`keyscope="var"` on each) is one scope,
+  as DITA-OT has it: its keys resolve under that name (`var.company`), where they did not before.
+- A key with several keywords for different audiences or products reads, under **View as**, as the first keyword the
+  condition set keeps, as published: the staging text for staging readers, the production text for production readers.
+
 ## 0.7.1
 
 ### Writing steps
