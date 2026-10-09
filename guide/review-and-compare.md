@@ -23,6 +23,7 @@ Visual DITA offers two ways to see what changed in a topic. They suit different 
 - [Compare with Git](#compare-with-git)
   - [Single page](#single-page) · [Side by side](#side-by-side) ·
     [Diffs from Source Control](#diffs-from-source-control) · [What a comparison marks](#what-a-comparison-marks) ·
+    [Comparing a map](#comparing-a-map) · [Comparing with View as on](#comparing-with-view-as-on) ·
     [Tracked changes and comments in a comparison](#tracked-changes-and-comments-in-a-comparison)
 - [Not yet](#not-yet)
 
@@ -198,6 +199,7 @@ as you have them. On the right:
 - **Edit** opens your file in its own tab, in the same editor group; the diff stays one tab over and follows what
   you change, before you save.
 - **Single page** opens your file with the same changes on one page.
+- **Close comparison** closes the diff and opens your file on its own page, as **Close comparison** on one page does.
 
 ### Diffs from Source Control
 
@@ -247,6 +249,26 @@ Not marked:
 - a move, which reads as removed in one place and new in the other,
 - comments (they are review markup, not content) and XML comments,
 - a table's `@cols`, which only follows its columns.
+
+### Comparing a map
+
+A map in a Git repository has **Compare** in its toolbar too: it asks which version, as for a topic, and marks the
+map's entries: an entry that is new outlined in green, one that went drawn where it stood and struck through in red
+(with how many entries were under it), one that moved outlined in violet and tagged *moved* (where it was, when it
+was under another entry). A title that changed reads as words do on a topic: the one it had struck through in red,
+then the new one in green; attributes that changed outline the entry in violet, tagged with which (*changed:
+@audience*). An entry is known by what it points at (its file, or key), a heading by its title; entries in a
+relationship table by their cell. The map
+is read-only until you close the comparison. **Side by side** shows it as for a topic: the version on the left with
+what went, your map on the right with what is new, scrolling together.
+
+### Comparing with View as on
+
+With a condition set chosen in **View as ▾**, a comparison reads both versions as that set's readers get them. What
+the set leaves out of the other version is dimmed or hidden as it is on your page, and labelled with its condition
+(*excluded · audience=user*); what changed only there is not counted in the summary. A paragraph that went for
+everyone is still drawn as gone. Choosing another set while comparing compares again. Side by side, each side shows
+its version as the set's readers get it.
 
 ### Tracked changes and comments in a comparison
 

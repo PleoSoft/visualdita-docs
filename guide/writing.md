@@ -8,7 +8,11 @@ keys do what that place expects. You write; the structure stays valid.
 ## Typing, Enter and getting out
 
 - **Enter** continues what you are writing: a new paragraph, a new step, a new list item, the next definition. In an
-  empty list item or step it steps out of the list, the way a second Enter does in Word. In preformatted text (code,
+  empty list item or step it steps out of the list, the way a second Enter does in Word. At the end of a step's
+  command, a small menu offers what may come next: the next **Step** first, so Enter again makes it, then what the
+  step takes after its command (**Step information**, **Substeps**, **Step result**, **Step example**, **Choices**…);
+  the arrows choose, Escape makes nothing, and typing goes on in the command. A step that already has more after its
+  command (its information, its result) keeps it: Enter makes the next step after the whole step. In preformatted text (code,
   screens, `<lines>`) and in a table cell, Enter is a new line. Where no paragraph may follow, Enter makes what your
   document type allows next, such as the next author in the prolog. Where it allows several things, a small menu at
   the caret offers them, the same kind first: Enter again takes it, Escape makes nothing.
@@ -20,8 +24,13 @@ keys do what that place expects. You write; the structure stays valid.
   **Insert → Related link…** (right-click) adds a related link to the topic, the first one too.
 - **Ctrl+Enter** leaves the element you are in — a note, a section, a table, a code block — and continues in a
   paragraph after it.
+- **Alt+Enter** opens right-click › **Insert** at the caret: what may go here, by place (**Here**, **After the
+  command**, **After the steps**…). The arrows move, → opens a place, Enter inserts, ← goes back, Escape closes; the
+  right-click menu takes the same keys.
 - **Backspace** and **Delete** in an empty element remove the element whole, instead of leaving an empty shell.
-- **Tab** and **Shift+Tab** indent and outdent list items, and move between table cells. In a topic's title, Tab
+- **Tab** and **Shift+Tab** indent and outdent list items, and move between table cells. On a step, Tab makes it a
+  substep of the step above, what it holds kept (a step with substeps of its own stays a step); Shift+Tab on a substep
+  makes it a step again, right after its step, the substeps that followed it going with it. In a topic's title, Tab
   goes on to its short description.
 - A topic without a short description shows a faint **Short description** line under its title: click it (or press
   Tab in the title) and type. Left empty, it goes again, and the file is not changed.
@@ -46,11 +55,13 @@ formatting, a link, a comment, and **Condition…** to tag the words for an audi
 ## Inserting elements
 
 The ribbon's **Insert** group has the common ones: note, section, step, code block, table, link, image, equation,
-reuse. Right-click › **Insert** has everything the document type allows at that spot, grouped by where it goes —
-inline at the caret, after the current element, at the end of its parent — with **All elements… (Styles list)**
-for the rest.
+reuse. Right-click › **Insert** has everything the document type allows around the caret, a submenu for each place,
+from the caret outward: **Here** (inline, at the caret), **After the command**, **After the step**, **After the
+steps**… and **At the end of** an element where something must come last. Each lists only what may go there, your
+own specializations too: the everyday elements first, the rest under them. **All elements… (Styles list)** has the
+whole list.
 
-![Right-click › Insert, with the elements allowed inline, after the paragraph and at the end of the body](images/insert-menu.png)
+![Right-click › Insert on a step's command: a submenu for each place around the caret, After the command open](images/insert-menu.png)
 
 The same right-click menu turns the element into another, deletes it (also **Ctrl+Shift+Delete**), shows where the
 topic is used, makes the element reusable (gives it an id to conref), and opens the XML at that place. **Make …
@@ -60,18 +71,26 @@ there.
 ## Extracting to a new topic
 
 Select paragraphs, lists, tables, or a whole section, and right-click › **Extract selection to new topic…**; or
-right-click a section › **Extract Section to new topic…**. The new topic is written beside this one (a section's title
-is its title; a selection asks for one), and what points at the content follows it, the way a refactoring updates
+right-click a section › **Extract Section to new topic…**. A small dialog asks its title (a section's own to start
+with) and two things, both ticked:
+
+- **Add it to the map, under this topic**: every map that uses this topic gets the new topic under it, after its other
+  entries — its place in the contents, and in PDF;
+- **Leave a link in its place**: a paragraph linking to the new topic where the content was, for you to reword. With
+  both, the map's entry says not to link to it again (`linking="sourceonly"`), so published output has no second link
+  at the end of this topic; with the map alone, publishing adds that link there, as the map nests it; with the link
+  alone, the new topic is published through the link, not in the contents (nor in PDF).
+
+The new topic is written beside this one, and what points at the content follows it, the way a refactoring updates
 every call site:
 
-- every map that uses this topic gets the new topic under it, after its other entries;
 - links and reuse, in this topic and in the others, that pointed into what moved now point at the new topic; a link to
   the section itself opens the new topic;
 - in the new topic, links to what stayed behind still point here.
 
 A nested topic is extracted whole — its short description, its prolog, the topics nested in it — and keeps its id:
-links into it keep pointing where they did, in the new file. With a map to hold it, nothing is left in its place; in
-no map, a link to the new topic is. A reference by key to an
+links into it keep pointing where they did, in the new file. When no map uses this topic, a link to the new topic is
+left in its place whatever you chose: nothing else would lead to it. A reference by key to an
 element that moved (`key/element`) cannot follow: it is said, and listed in the Visual DITA output. The new topic is a
 plain topic, or one of your topic's own type when its content needs it (your own elements).
 
@@ -358,9 +377,10 @@ file. A map's metadata is in the same pane, as Map info (see [Maps](maps.md#the-
 
 | Keys | Does |
 |---|---|
-| Enter | a new paragraph, step or list item; a new line in preformatted text and table cells; elsewhere, what the document type allows next |
+| Enter | a new paragraph, step or list item (at the end of a step's command, a menu: the next step first); a new line in preformatted text and table cells; elsewhere, what the document type allows next |
 | Ctrl+Enter | leave the element (note, section, table…) and continue after it |
-| Tab / Shift+Tab | indent or outdent a list item; next or previous table cell |
+| Alt+Enter | what may go here, by place: right-click › Insert, at the caret |
+| Tab / Shift+Tab | indent or outdent a list item, a step into a substep and back; next or previous table cell |
 | Ctrl+B, Ctrl+I, Ctrl+U | bold, italic, underline |
 | Ctrl+K | link the selection |
 | Ctrl+Alt+M | comment on the selection |

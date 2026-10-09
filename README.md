@@ -55,8 +55,8 @@ become lists. What it read from the look, and what did not come across, it tells
 see [Converting a Word document](guide/writing.md#converting-a-word-document).
 
 **Refactor like code.** Select paragraphs, lists or a section › **Extract selection to new topic…**: the new topic
-goes into every map that uses this one, under it, and the links and reuse that pointed into what moved follow it,
-in every file. **Inline into parent topic…**, on the map, does the reverse. Like a refactoring in a code editor,
+goes into every map that uses this one, under it, a link to it stays where the content was if you like, and the
+links and reuse that pointed into what moved follow it, in every file. **Inline into parent topic…**, on the map, does the reverse. Like a refactoring in a code editor,
 nothing is left pointing at the old place.
 
 **Tables that behave.** CALS (`table`) and simple tables (`simpletable`, choice tables, properties) render as
@@ -74,7 +74,8 @@ team that reviews through Git switches Track changes off for the project with `v
 any earlier version or another branch: **Single page** marks the changes on your page — new in green, removed
 struck through — and **Side by side** puts the two versions next to each other, scrolling together. A diff from
 Source Control reads the same way when you open it in Visual DITA: your changes, staged changes, one commit
-against another. Changed words, paragraphs, table rows and cells, formatting and attributes are all marked.
+against another. Changed words, paragraphs, table rows and cells, formatting and attributes are all marked. A map
+compares too: its entries added, removed, moved and retitled.
 
 ![Side by side: the committed version on the left with what was removed struck through, your version on the right with what is new in green](guide/images/compare-side-by-side.png)
 

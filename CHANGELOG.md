@@ -1,5 +1,50 @@
 # Changelog
 
+## 0.7.1
+
+### Writing steps
+
+- **Enter** at the end of a step's command offers what may come next: the next step first, so Enter again makes it as
+  before, then what the step takes after its command (Step information, Substeps, Step result, Step example,
+  Choices…). The same for a substep. A step that already has more after its command keeps it: the next step comes
+  after the whole step.
+- **Tab** on a step makes it a substep of the step above, and **Shift+Tab** on a substep makes it a step again, as
+  Tab and Shift+Tab indent and outdent a list in Word.
+- The headings of a task's sections (Before you begin, About this task, Procedure, Results, What to do next) are in
+  the topic's language, its `xml:lang`, as the published output words them: German, French, Japanese and every other
+  language DITA-OT has (English when the topic names none). The same in HTML published with Visual DITA's look.
+
+### Inserting elements
+
+- Right-click › **Insert** has a submenu for each place around the caret, from the caret outward: **Here**, **After
+  the command**, **After the step**, **After the steps**… each with only what your document type allows there, your
+  specializations too. Every place is offered, not only the nearest ones, and nothing is left out: a step's
+  information, result and example are among the everyday elements, the rarely used ones under them.
+- Every element of standard DITA has a name in the menus (Code reference, Command name, Property…), not its element
+  name.
+- **Alt+Enter** opens it at the caret, from the keyboard: the arrows move, → opens a place, Enter inserts, ← goes
+  back, Escape closes. The right-click menu takes the same keys.
+
+### Refactoring
+
+- **Extract … to new topic** asks, with the new topic's title, whether to add it to the map under this topic and
+  whether to leave a link in its place; both by default. With both, the map's entry says not to link to it again, so
+  published output has the link where you left it and no second one at the end of the topic.
+
+### Comparing
+
+- Side by side has **Close comparison** too, beside **Single page**: the diff closes and your file is on its own page.
+- A map can be compared with an earlier version from Git, as a topic is, on one page or side by side: **Compare** in
+  the map's toolbar marks the entries added, removed (where they stood), moved and changed (their title or attributes).
+- With **View as ▾** on, a comparison reads both versions as that condition set's readers get them: what the set
+  leaves out of the other version is dimmed or hidden like the rest of the page and labelled with its condition, and
+  the summary counts only what those readers would see change.
+
+### Reading
+
+- On a topic you cannot change (one VS Code keeps read-only, a side of a comparison), right-click offers what works
+  there: **Open link**, **Open reused content**, **Copy**, **Show tags**, **Open source**.
+
 ## 0.7.0
 
 ### Conditions
