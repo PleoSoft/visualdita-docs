@@ -1,5 +1,40 @@
 # Changelog
 
+## 0.7.4
+
+### Keys
+
+- A key of another publication resolves when that publication's map names the same key scope on its own root
+  element as the peer reference does (`bundle-admin.users`, each publication's map with `keyscope="bundle-admin"`):
+  on the page, in Check References, and in where a topic is used.
+- A topic is read in the publication it belongs to, not in a map beside it that nobody refers to (a draft, a map kept
+  aside): the publications your maps refer to as peers come first, the ones most of them refer to before the others,
+  and a set of publications that all refer to each other is looked through whole.
+- A root map or a submap reads its keys inside the key scope its root element opens.
+- **Key…** and reusing content by key list each key once, by its shortest name, and each other publication once,
+  also in a publication whose map names its own key scope.
+- Check References, the Explorer's marks and where a topic is used leave out a reference inside a comment, or inside
+  an attribute change Oxygen tracks: it is not one.
+- A key the map a topic is read in does not define is said with that map's name (the map you have open, a map of its
+  own that defines no keys), not as a key no map defines; opening another map checks the topic's keys again.
+
+### The DITA Map view
+
+- A map's **Keys** list each key by its name, with its text, its target's title or its file beside it.
+- **Publish** is offered on maps and topics only: an entry for an image, a PDF or another file shows as such, without
+  it.
+- A comment in a title is no part of it: a map whose title is only a template's placeholder comment shows its file
+  name, not the end of the comment.
+
+### Standard DITA
+
+- DITA 1.3 is the one DITA-OT and the editors built on it validate with: OASIS's Errata 02 (`format` on `<image>`)
+  with DITA-OT's corrections (`outputclass` on `<colspec>`, the attributes of `<change-historylist>`).
+
+### The Project Health Report
+
+- Each group folds: click its heading to hide its list, again to show it.
+
 ## 0.7.3
 
 ### Keys

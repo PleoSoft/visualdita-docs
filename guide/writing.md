@@ -243,9 +243,11 @@ being there. A converted Word document is written this way. Your publishing styl
   type does not.
 - **Keys**: text defined by a key (`<keyword keyref="product"/>`) shows its value, resolved through the map and its
   key scopes. The map is the one you have open when it has the topic (a chapter's map stands for its publication),
-  else the nearest map that publishes it; `visualDita.rootMap` names one map for every topic instead. A key of
+  else the nearest map that publishes it, the publications your other maps refer to as peers before a map nobody
+  refers to (a map kept aside, a draft); `visualDita.rootMap` names one map for every topic instead. A key of
   another publication your map refers to as a peer (`<mapref href="../admin/admin.ditamap" scope="peer"
-  keyscope="admin"/>`) is written with that key scope, `admin.users`, and resolves to that publication's key.
+  keyscope="admin"/>`) is written with that key scope, `admin.users`, and resolves to that publication's key, also
+  when that publication's map names the same key scope on its own root element.
 - **Glossary terms**: right-click › **Insert › Glossary term…** picks a term of your glossary by its words; point at a
   glossary term to see what it means; select words and **Add to Glossary…** to make them a new entry. See
   [Your glossary](glossary.md).
