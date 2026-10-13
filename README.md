@@ -256,8 +256,8 @@ version, or making one the project's version (for the project, in its settings).
 | `visualDita.publishing.topic` | DITA-OT's parameters for a topic published alone, over its output's. Default: only the topic (`link-crawl`: `map`), no warning about its map's folder (`outer.control`: `quiet`), no contents (`html5.toc.generate`: `no`). |
 | `visualDita.explorerBadges` | Mark topics and maps in the Explorer: references that do not resolve (their count), `!` for a document type not licensed, a topic no map uses greyed. |
 | `visualDita.updateReferences` | When you rename or move a topic, map, image or folder in the Explorer, update the references to it and a moved file's own: `prompt` (ask, with **Show Changes First**), `always` or `never`. Keys and fragments stay as they are. |
-| `visualDita.templates` | Folders with topic and map templates for **New Topic from Template…** and **New Map from Template…**. The standard DITA types and your personal templates (`~/.visual-dita/templates`, filled by **Save as Template…**) are always offered too. |
-| `visualDita.css` | Oxygen Author CSS files or folders applied to the page. |
+| `visualDita.templates` | Folders with topic and map templates for **New Topic from Template…** and **New Map from Template…**. Default: `templates` and `.dita/templates`. The standard DITA types and your personal templates (`~/.visual-dita/templates`, filled by **Save as Template…**) are always offered too. |
+| `visualDita.css` | Oxygen Author CSS files or folders applied to the page. Default: `.dita/css`, when the project has one. |
 | `visualDita.panes` | Where the Properties, Review and Topic panes live: `vscode` (the Visual DITA container of the secondary side bar) or `page`. |
 | `visualDita.mapViewOnOpen` | Whether opening a map switches the side bar to the DITA Map view: `ask`, `always` or `never`. |
 | `visualDita.autoIds` | Element classes that get an id when inserted, so they can be conref'd. |

@@ -43,6 +43,14 @@ XML parsing and serialisation outside the browser (`@xmldom/xmldom`).
 >
 > MIT licence — see <https://github.com/xmldom/xmldom/blob/master/LICENSE>.
 
+## eventsource-parser
+
+Reads server-sent events (`eventsource-parser`). Bundled into the extension.
+
+> Copyright (c) 2026 Espen Hovlandsdal <espen@hovlandsdal.com>
+>
+> MIT licence — see <https://github.com/rexxars/eventsource-parser/blob/main/LICENSE>.
+
 ## node-sqlite3-wasm and SQLite
 
 The project's index, behind DITA Search, where a file is used and Go to Symbol in Workspace: SQLite with its
@@ -55,14 +63,34 @@ with its licence.
 
 > SQLite is in the public domain: <https://www.sqlite.org/copyright.html>.
 
-## vscode-languageclient
+## MCP TypeScript SDK, and what it uses
 
-The client for the optional DITA language server (`vscode-languageclient`, `vscode-languageserver-protocol`,
-`vscode-jsonrpc`).
+The agent tools' server (`out/server.js`), which answers agents over the Model Context Protocol: the protocol's
+TypeScript SDK (`@modelcontextprotocol/sdk`), with what it uses to describe and check the tools' input (`zod`,
+`zod-to-json-schema`, `ajv`, `ajv-formats`, `fast-deep-equal`, `fast-uri`, `json-schema-traverse`). Bundled into the
+server.
 
-> Copyright © Microsoft Corporation. All rights reserved.
+> `@modelcontextprotocol/sdk`: Copyright (c) 2024 Anthropic, PBC. `zod`: Copyright (c) 2025 Colin McDonnell. `ajv`:
+> Copyright (c) 2015-2021 Evgeny Poberezkin. `ajv-formats`: Copyright (c) 2020 Evgeny Poberezkin. `fast-deep-equal`:
+> Copyright (c) 2017 Evgeny Poberezkin. `json-schema-traverse`: Copyright (c) 2017 Evgeny Poberezkin. MIT licence —
+> see <https://github.com/modelcontextprotocol/typescript-sdk>, <https://github.com/colinhacks/zod>,
+> <https://github.com/ajv-validator/ajv>, <https://github.com/ajv-validator/ajv-formats>,
+> <https://github.com/epoberezkin/fast-deep-equal> and <https://github.com/epoberezkin/json-schema-traverse>.
 >
-> MIT licence — see <https://github.com/microsoft/vscode-languageserver-node/blob/main/License.txt>.
+> `zod-to-json-schema`: Copyright (c) 2020, Stefan Terdell. ISC licence — see
+> <https://github.com/StefanTerdell/zod-to-json-schema>.
+>
+> `fast-uri`: Copyright (c) 2011-2021, Gary Court; Copyright (c) 2021-present The Fastify team. All rights reserved.
+> BSD 3-Clause licence — see <https://github.com/fastify/fast-uri>.
+
+## jsonc-parser
+
+Reads JSON with comments as VS Code writes it (a project's `.vscode/settings.json`), and adds the agent tools' entry
+to a project's `.mcp.json` leaving the rest of the file as it was (`jsonc-parser`).
+
+> Copyright (c) Microsoft.
+>
+> MIT licence — see <https://github.com/microsoft/node-jsonc-parser/blob/main/LICENSE.md>.
 
 ## temml
 
@@ -71,6 +99,31 @@ MathML annotation). Bundled into the page script.
 
 > Copyright (c) 2021-2025 Ron Kok.
 > MIT licence — see <https://github.com/rontrz/temml/blob/main/LICENSE>.
+
+## jsdiff
+
+Finds what changed between two versions of a topic, block by block and word by word (`diff`). Bundled into the page
+scripts.
+
+> Copyright (c) 2009-2015, Kevin Decker <kpdecker@gmail.com>. All rights reserved.
+> BSD 3-Clause licence — see <https://github.com/kpdecker/jsdiff/blob/master/LICENSE>.
+
+## CSSTree
+
+Reads a framework's Author CSS, and the look of DITA content, as CSS is read (`css-tree`, its parser). Bundled into
+the extension and the page scripts.
+
+> Copyright (C) 2016-2026 by Roman Dvornov.
+> MIT licence — see <https://github.com/csstree/csstree/blob/master/LICENSE>.
+
+## openid-client, oauth4webapi and jose
+
+Sign-in with OpenID Connect. Bundled into the extension.
+
+> openid-client: Copyright (c) 2016 Filip Skokan. oauth4webapi: Copyright (c) 2022 Filip Skokan. jose: Copyright (c)
+> 2018 Filip Skokan.
+> MIT licence — see <https://github.com/panva/openid-client/blob/main/LICENSE>,
+> <https://github.com/panva/oauth4webapi/blob/main/LICENSE> and <https://github.com/panva/jose/blob/main/LICENSE>.
 
 ## SaxonJS
 
@@ -356,8 +409,8 @@ The components above marked "MIT licence" are covered by these terms:
 
 ## The BSD 3-Clause Licence
 
-`ed25519-dalek`, `curve25519-dalek` and `subtle`, with the copyright notices listed above, are covered by these
-terms:
+`ed25519-dalek`, `curve25519-dalek`, `subtle`, `fast-uri` and `diff`, with the copyright notices listed above, are
+covered by these terms:
 
 > Redistribution and use in source and binary forms, with or without modification, are permitted provided that
 > the following conditions are met:
@@ -384,6 +437,9 @@ under the same three conditions and disclaimer, with the third condition reading
 nor the names of its contributors may be used to endorse or promote products derived from this software without
 specific prior written permission."
 
+In `fast-uri`'s licence the third condition reads: "The names of any contributors may not be used to endorse or
+promote products derived from this software without specific prior written permission."
+
 ## The BSD 2-Clause Licence
 
 `mammoth`, `lop`, `option` and `dingbat-to-unicode`, with the copyright notices listed above, are covered by these
@@ -408,7 +464,7 @@ terms:
 
 ## The ISC Licence
 
-`inherits`, with the copyright notice listed above, is covered by these terms:
+`inherits` and `zod-to-json-schema`, with the copyright notices listed above, are covered by these terms:
 
 > Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby
 > granted, provided that the above copyright notice and this permission notice appear in all copies.

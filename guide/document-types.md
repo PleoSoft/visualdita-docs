@@ -62,6 +62,10 @@ From 1 November Visual DITA reminds you, and the view shows the date. If the dat
 file opens on a message instead of the page, with the download and **Open Source**. Your files are unchanged: editing
 them as XML, and using them with any other tool, is never restricted.
 
+**With a licensed specialization**, standard DITA keeps working as long as one of your Visual DITA packages is valid:
+past its own date, the view says it stays open with your licence, and until when. A specialization itself works until
+its own licence's date, never longer.
+
 ## Specializations: licensed
 
 Many organizations have document types of their own: specializations, which add elements (a hazard statement, a

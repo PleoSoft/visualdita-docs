@@ -1,5 +1,70 @@
 # Changelog
 
+## 0.7.5
+
+### Keys
+
+- Key references inside reused content (a `conref` or `conkeyref`) show their keys' text, as the topic's own do,
+  instead of the key names.
+- Reopening a large project, its first topic opens with its keys at once, without waiting for Visual DITA to look
+  through every file of the workspace for what changed while it was closed.
+
+### Definition lists and figures
+
+- A definition list shows its terms on the left and their definitions on the right, its `dlhead` as the first row, as
+  Oxygen shows it and as DITA-OT's PDF prints it; published HTML keeps DITA-OT's own list.
+- In a figure, only its images are centred: the text of a callout legend, or of a list, is not.
+
+### Schematron
+
+- Rules that read a file of theirs by a path relative to the rules file (`document('rulesets/terms.xml')`) find it, and
+  report as they should, instead of the check stopping on that topic.
+
+### Publishing
+
+- A DITA-OT project file that another project file includes is read as part of it, as DITA-OT reads it: its
+  deliverables find the contexts and publications they name there, and publish with the file that includes it,
+  instead of being reported as naming what is not there.
+
+### Standard DITA
+
+- Standard DITA keeps working as long as one of your licensed Visual DITA packages is valid, past its own date; the
+  DITA Document Types view says so, and until when. A specialization works until its own licence's date.
+
+### Templates and styling
+
+- A project's `.dita/templates` is offered by **New Topic from Template…** and **New Map from Template…** with a
+  `templates` folder, and the Author CSS in its `.dita/css` styles the page, with no setting.
+- Author CSS is read as CSS is read: a `/*` inside a string (`content: "/*"`, an XPath like `'//*'`) starts no
+  comment, so the rules after it apply; a media query written over several lines applies; and a rule that cannot be
+  read is skipped, the rest kept.
+
+### Short description
+
+- A topic without a short description offers one ("Short description" under the title) also when its page becomes
+  editable while open, a colleague's lock released, as it does when it opens editable.
+
+### Images
+
+- An image whose file is not there, or is not one Visual DITA can draw (not an image, damaged), says so in its place,
+  with the file's name, instead of showing nothing; it is drawn once its file can be.
+
+### Links
+
+- A file whose name has a `#`, a `%` or a space is linked to as it should be: the links Visual DITA writes to it are
+  encoded (a space as `%20`), and links to it are followed, instead of the name being cut at its `#`.
+
+### Comparing
+
+- Comparing a long topic with an earlier version is faster, and marks each change where it is, word by word, instead
+  of the whole stretch between the first change and the last (a topic of thousands of paragraphs, a very long
+  paragraph).
+
+### AI agents
+
+- Setting up Visual DITA for Claude Code changes its own entry in the project's `.mcp.json` alone, the rest of the file
+  kept as it was, comments included.
+
 ## 0.7.4
 
 ### Keys

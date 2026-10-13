@@ -47,8 +47,8 @@ Command Palette (**Ctrl+Shift+P**).
 
 ![The template list: Concept, Task, Reference, Topic](images/new-topic.png)
 
-The list has the standard DITA types, your project's templates (a `templates` folder, or the folders in
-`visualDita.templates`), and your personal ones. Give the topic a title: the file is named after it
+The list has the standard DITA types, your project's templates (a `templates` folder and `.dita/templates`, or the
+folders in `visualDita.templates`), and your personal ones. Give the topic a title: the file is named after it
 (*Cleaning the housing* becomes `cleaning-the-housing.dita`), its id and author are filled in, and it opens on the
 page.
 **New Map from Template…** does the same for maps and bookmaps, and **Save as Template…** turns the topic or map you
