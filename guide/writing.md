@@ -61,6 +61,9 @@ steps**… and **At the end of** an element where something must come last. Each
 own specializations too: the everyday elements first, the rest under them. **All elements… (Styles list)** has the
 whole list.
 
+An inline element chosen over selected words, here or from **Styles**, wraps them (a UI control over *Settings*). With
+nothing selected, it goes in empty, shown by its name, and what you type next goes into it.
+
 ![Right-click › Insert on a step's command: a submenu for each place around the caret, After the command open](images/insert-menu.png)
 
 The same right-click menu turns the element into another, deletes it (also **Ctrl+Shift+Delete**), shows where the

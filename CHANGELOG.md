@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.7.8
+
+### Inserting elements
+
+- An element chosen from the Styles menu or from Insert over selected words wraps them (a UI control over "Settings"),
+  as Word makes them bold. With nothing selected, it goes in empty, shown by its name, and what you type next goes
+  into it.
+- An element is inserted with only what it needs: no metadata or extension elements (`data-about`, `unknown`) made
+  inside it.
+
 ## 0.7.7
 
 ### Saving
