@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.7.6
+
+### Keys
+
+- In reused content (a `conref` or `conkeyref`), a link with no text of its own shows the title of what it links to,
+  as the topic's own links do, instead of its key or its path; and a key of another publication, named through its key
+  scope (`bundle-b.install`), is found even when only the reused content uses it.
+
+### Reuse
+
+- An empty element inside one that reuses content (the `<li/>` a `<ul conkeyref>` holds because its grammar wants
+  one) is neither reported as empty nor shown: the reused content replaces it.
+
+### Large projects
+
+- A topic's keys, and the check of its words against the project's glossary, read only the glossary entries among the
+  topics the keys point at: in a large publication, thousands of topics fewer are read when a topic opens and at each
+  check while you write.
+- A document type no Visual DITA package has is named once in the Visual DITA output, not once for every file of it.
+
 ## 0.7.5
 
 ### Keys
