@@ -63,4 +63,8 @@ Save with **Ctrl+S** as usual. Visual DITA rewrites only the elements you change
 indentation, comments, processing instructions, entities, attribute order — stays byte for byte as it was, so a diff
 of your commit shows your edit and nothing else.
 
+A change that cannot be written to the file is said at once, in a red bar above the page, with **Copy the Text** to
+keep it. When the file changes outside the page and the page cannot show that change, the page writes nothing over it
+until you choose **Reload the Page**.
+
 Next: [Writing on the page](writing.md).
