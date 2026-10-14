@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.7.7
+
+### Saving
+
+- Your changes reach the file even when the page fails to update itself: the unsaved marker shows, and Save writes
+  them.
+- A change that cannot be written to the file is said at once, in a red bar above the page, with **Copy the Text** to
+  keep it: a change is never kept on the page alone without a word.
+- When the file changes outside the page and the page cannot show that change, the page writes nothing over it: the
+  bar says so, with **Copy the Text** and **Reload the Page**.
+- Errors on the page are written in the Visual DITA output.
+
 ## 0.7.6
 
 ### Keys
